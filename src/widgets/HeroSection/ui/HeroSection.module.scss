@@ -1,0 +1,143 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+  background: $color-black;
+}
+
+.inner {
+  @include container;
+
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+}
+
+// ─── Eyebrow ───────────────────────────────────────────────────────────────
+
+.eyebrow {
+  @include eyebrow-text;
+
+  display: block;
+  margin-bottom: $spacing-lg;
+  color: $color-accent;
+}
+
+// ─── Title ─────────────────────────────────────────────────────────────────
+
+.title {
+  @include display-text($font-size-hero);
+
+  margin-bottom: $spacing-xl;
+  color: $color-white;
+}
+
+// ─── Subtitle ──────────────────────────────────────────────────────────────
+
+.subtitle {
+  @include body-text($font-size-lg);
+
+  max-width: 480px;
+  margin-bottom: $spacing-2xl;
+  color: $color-gray-mid;
+}
+
+// ─── Actions ───────────────────────────────────────────────────────────────
+
+.actions {
+  display: flex;
+  gap: $spacing-lg;
+  align-items: center;
+}
+
+.btnPrimary {
+  @include eyebrow-text;
+
+  display: inline-block;
+  padding: $spacing-md $spacing-xl;
+  color: $color-black;
+  background: $color-accent;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-accent-dark;
+  }
+}
+
+.btnSecondary {
+  @include eyebrow-text;
+
+  color: $color-gray-light;
+  border-bottom: 1px solid $color-border-dark;
+  transition:
+    color $transition-fast,
+    border-color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+    border-color: $color-accent;
+  }
+}
+
+// ─── Badge ─────────────────────────────────────────────────────────────────
+
+.badge {
+  position: absolute;
+  right: $spacing-xl;
+  bottom: $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border: 1px solid $color-border-dark;
+}
+
+.badgeNumber {
+  @include display-text($font-size-3xl);
+
+  color: $color-accent;
+}
+
+.badgeLabel {
+  @include eyebrow-text;
+
+  color: $color-gray-mid;
+}
+
+// ─── Mobile ────────────────────────────────────────────────────────────────
+
+@include mobile {
+  .title {
+    font-size: $font-size-3xl;
+  }
+
+  .subtitle {
+    font-size: $font-size-md;
+
+    br {
+      display: none;
+    }
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    a {
+      text-align: center;
+    }
+  }
+
+  .badge {
+    position: static;
+    align-self: flex-start;
+    margin-top: $spacing-2xl;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+  }
+}

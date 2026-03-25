@@ -1,8 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
-};
+  sassOptions: {
+    additionalData: `
+      @use "@/shared/styles/variables" as *;
+      @use "@/shared/styles/mixins" as *;
+    `,
+  },
+}
 
-export default nextConfig;
+export default nextConfig

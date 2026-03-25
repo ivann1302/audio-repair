@@ -1,0 +1,90 @@
+// ─── Colors ───────────────────────────────────────────────────────────────────
+
+// Neutrals (monochrome base)
+$color-black: #111;
+$color-dark: #1a1a1a;
+$color-gray-dark: #333;
+$color-gray-mid: #666;
+$color-gray-light: #f0f0f0;
+$color-off-white: #fafafa;
+$color-white: #fff;
+
+// Surfaces
+$color-bg: $color-off-white;
+$color-bg-dark: $color-black;
+$color-bg-section: $color-gray-light;
+
+// Text
+$color-text: $color-black;
+$color-text-muted: $color-gray-mid;
+$color-text-inv: $color-off-white; // текст на тёмном фоне
+
+// Accent (янтарный — единственный цвет на сайте)
+$color-accent: #f0b429;
+$color-accent-dark: #c8930a; // hover / active
+
+// Borders
+$color-border: #e0e0e0;
+$color-border-dark: #2a2a2a;
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+
+// next/font выставляет CSS-переменные --font-display и --font-body в <html>
+$font-display: var(--font-display), sans-serif; // Anton — заголовки, uppercase
+$font-body: var(--font-body), serif; // Crimson Text — основной текст
+
+// Размеры (десктоп)
+$font-size-xs: 9px;
+$font-size-sm: 11px;
+$font-size-base: 14px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 32px;
+$font-size-2xl: 48px;
+$font-size-3xl: 72px;
+$font-size-hero: 96px;
+
+// Letter spacing (Anton)
+$ls-tight: -0.02em;
+$ls-normal: 0;
+$ls-wide: 0.1em;
+$ls-wider: 0.2em;
+
+// Line height
+$lh-tight: 0.88;
+$lh-normal: 1;
+$lh-body: 1.7;
+
+// ─── Spacing ──────────────────────────────────────────────────────────────────
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 40px;
+$spacing-2xl: 64px;
+$spacing-3xl: 96px;
+
+// Внутренние отступы секций
+$section-padding-v: 80px;
+$section-padding-h: 80px;
+$section-padding-mob-v: 40px;
+$section-padding-mob-h: 20px;
+
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
+
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1440px;
+
+// ─── Layout ───────────────────────────────────────────────────────────────────
+
+// Дизайн использует острые углы — radius не применяется
+$radius-none: 0;
+
+// ─── Transitions ──────────────────────────────────────────────────────────────
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
