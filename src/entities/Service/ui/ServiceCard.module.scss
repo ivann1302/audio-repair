@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
+.iconWrapper {
+  margin-bottom: $spacing-xs;
+  color: $color-accent;
+}
+
+.title {
+  @include display-text($font-size-md);
+
+  margin: 0;
+  color: $color-text;
+}
+
+.description {
+  @include body-text($font-size-base);
+
+  flex: 1;
+  margin: 0;
+  color: $color-text-muted;
+}
+
+.price {
+  @include eyebrow-text;
+
+  margin: 0;
+  margin-top: $spacing-xs;
+  color: $color-text-muted;
+}
+
+.priceValue {
+  color: $color-text;
+}

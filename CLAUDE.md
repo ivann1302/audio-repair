@@ -101,6 +101,54 @@ export function ComponentName({ className }: Props) {
 - Не пиши инлайн стили (`style={{}}`) — только SCSS модули
 - Не добавляй анимации без согласования (пока не определились с библиотекой)
 
+## Design Decisions
+- Шрифты: **Russo One** (display, кириллица) + **Crimson Text** (body)
+- Палитра: монохром #111→#fafafa + акцент **#F0B429** (янтарный)
+- Карта: Yandex Maps iframe в ContactsSection
+- Форма заявки: отправка в **Telegram-бот** (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`)
+- Данные: статичные в `model/data.ts` каждой entity
+- Хостинг: Vercel
+
+## Development Plan
+Полный план в `PLAN.md`. Текущий прогресс:
+
+**Этап 0 — Фундамент** `[x]`
+Next.js 16, SCSS токены, шрифты, ESLint/Prettier, Jest/Playwright
+
+**Этап 1 — Shared UI**
+- [x] 1.1 Button (`src/shared/ui/Button/`) — primary/secondary/ghost, sm/md/lg, href→Link
+- [x] 1.2 SectionTitle — eyebrow + h2, align, light-вариант
+- [x] 1.3 Container — max-width обёртка
+- [x] 1.4 Icon — реестр inline SVG с currentColor, type IconName
+
+**Этап 2 — Entities** `[x]`
+Service, Review, Article — types + data.ts + карточка
+
+**Этап 3 — Виджеты главной** `[ ]`
+Header [x], HeroSection [~], ServicesSection, ProcessSection,
+MasterSection, AccentCTA, TestimonialsSection, ContactsSection, Footer
+
+**Этап 4 — Главная страница + форма** `[ ]`
+`app/page.tsx` + RepairRequest feature + `/api/contact` route
+
+**Этап 5 — Блог** `[ ]`
+`app/blog/page.tsx`, BlogHero, CategoryFilter, ArticleGrid
+
+**Этап 6 — Страница статьи** `[ ]`
+`app/blog/[slug]/page.tsx`, ArticleHero, ArticleBody, RelatedArticles
+
+**Этап 7 — Контент блога** `[ ]`
+6 статей-заглушек в `entities/Article/model/data.ts`
+
+**Этап 8 — SEO** `[ ]`
+metadata, Schema.org JSON-LD, sitemap
+
+**Этап 9 — Тесты** `[ ]`
+Unit (Button, Header, форма) + E2E (Playwright)
+
+**Этап 10 — Деплой** `[ ]`
+Vercel env, Telegram-бот, домен, аналитика
+
 ## Prompts
 
 ### Создать компонент

@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { Anton, Crimson_Text } from 'next/font/google'
+import { Crimson_Text, Russo_One } from 'next/font/google'
 
 import { siteConfig } from '@/shared/config/seo'
 import { Providers } from '@/shared/lib/providers'
 
 import '@/shared/styles/reset.scss'
 
-const anton = Anton({
+const russoOne = Russo_One({
   variable: '--font-display',
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
   weight: '400',
   display: 'swap',
 })
@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" className={`${anton.variable} ${crimsonText.variable}`}>
+    <html lang="ru" className={`${russoOne.variable} ${crimsonText.variable}`}>
       <body>
         <Providers>{children}</Providers>
       </body>

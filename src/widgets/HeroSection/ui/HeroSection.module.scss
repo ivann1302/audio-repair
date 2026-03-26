@@ -1,49 +1,55 @@
 .root {
-  position: relative;
   display: flex;
-  align-items: center;
-  min-height: 100svh;
+  align-items: stretch;
+  height: calc(100svh - 64px);
+  padding-bottom: 50px;
   overflow: hidden;
   background: $color-black;
+
+  @include mobile {
+    height: auto;
+    overflow: visible;
+  }
 }
 
 .inner {
-  @include container;
-
-  padding-top: $spacing-3xl;
-  padding-bottom: $spacing-3xl;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  align-items: stretch;
+  padding-top: clamp(#{$spacing-lg}, 5vw, 74px);
+  padding-bottom: $spacing-xl;
 }
 
-// ─── Eyebrow ───────────────────────────────────────────────────────────────
+// ─── Content (left column) ─────────────────────────────────────────────────
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  justify-content: space-between;
+}
 
 .eyebrow {
   @include eyebrow-text;
 
   display: block;
-  margin-bottom: $spacing-lg;
   color: $color-accent;
 }
 
-// ─── Title ─────────────────────────────────────────────────────────────────
-
 .title {
-  @include display-text($font-size-hero);
+  @include display-text;
 
-  margin-bottom: $spacing-xl;
+  font-size: clamp(#{$font-size-2xl}, 5vw, #{$font-size-3xl});
   color: $color-white;
 }
-
-// ─── Subtitle ──────────────────────────────────────────────────────────────
 
 .subtitle {
   @include body-text($font-size-lg);
 
   max-width: 480px;
-  margin-bottom: $spacing-2xl;
   color: $color-gray-mid;
 }
-
-// ─── Actions ───────────────────────────────────────────────────────────────
 
 .actions {
   display: flex;
@@ -51,46 +57,33 @@
   align-items: center;
 }
 
-.btnPrimary {
-  @include eyebrow-text;
+// ─── Image (right column) ──────────────────────────────────────────────────
 
-  display: inline-block;
-  padding: $spacing-md $spacing-xl;
-  color: $color-black;
-  background: $color-accent;
-  transition: background $transition-fast;
-
-  &:hover {
-    background: $color-accent-dark;
-  }
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
 }
 
-.btnSecondary {
-  @include eyebrow-text;
-
-  color: $color-gray-light;
-  border-bottom: 1px solid $color-border-dark;
-  transition:
-    color $transition-fast,
-    border-color $transition-fast;
-
-  &:hover {
-    color: $color-accent;
-    border-color: $color-accent;
-  }
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 // ─── Badge ─────────────────────────────────────────────────────────────────
 
 .badge {
   position: absolute;
-  right: $spacing-xl;
-  bottom: $spacing-2xl;
+  right: 15px;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   gap: $spacing-xs;
   align-items: center;
   padding: $spacing-md $spacing-lg;
+  background: $color-black;
   border: 1px solid $color-border-dark;
 }
 
@@ -109,8 +102,13 @@
 // ─── Mobile ────────────────────────────────────────────────────────────────
 
 @include mobile {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+
   .title {
-    font-size: $font-size-3xl;
+    font-size: $font-size-2xl;
   }
 
   .subtitle {
@@ -123,21 +121,30 @@
 
   .actions {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
 
     a {
-      text-align: center;
+      padding: $spacing-sm $spacing-2xl;
+      font-size: $font-size-sm;
     }
   }
 
-  .badge {
-    position: static;
-    align-self: flex-start;
-    margin-top: $spacing-2xl;
+  .imageWrapper {
+    order: -1;
+    width: calc(100% + #{$spacing-md} * 2);
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin-right: -$spacing-md;
+    margin-left: -$spacing-md;
   }
 
-  .inner {
-    display: flex;
-    flex-direction: column;
+  .badge {
+    top: 0;
+    bottom: auto;
+    padding: $spacing-xs $spacing-md;
+  }
+
+  .badgeNumber {
+    font-size: $font-size-xl;
   }
 }

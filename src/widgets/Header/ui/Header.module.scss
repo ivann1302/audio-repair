@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: $color-black;
-  border-bottom: 1px solid $color-border-dark;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
 }
 
 .inner {
@@ -33,7 +33,7 @@
 .logoText {
   @include display-text($font-size-base);
 
-  color: $color-white;
+  color: $color-black;
   letter-spacing: $ls-wide;
 }
 
@@ -48,7 +48,7 @@
 .navLink {
   @include eyebrow-text;
 
-  color: $color-gray-light;
+  color: $color-gray-dark;
   transition: color $transition-fast;
 
   &:hover {
@@ -63,7 +63,7 @@
   transition: color $transition-fast;
 
   &:hover {
-    color: $color-white;
+    color: $color-black;
   }
 }
 
@@ -97,7 +97,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: $color-white;
+  background: $color-black;
   transform-origin: center;
   transition:
     transform $transition-fast,
@@ -132,7 +132,7 @@
     align-items: flex-start;
     padding: $spacing-lg $spacing-md;
     overflow-y: auto;
-    background: $color-black;
+    background: $color-white;
 
     &.navOpen {
       display: flex;
@@ -144,7 +144,7 @@
     width: 100%;
     padding: $spacing-md 0;
     font-size: $font-size-sm;
-    border-bottom: 1px solid $color-border-dark;
+    border-bottom: 1px solid $color-border;
   }
 
   .cta {

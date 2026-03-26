@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   sassOptions: {
     additionalData: `
+      @use "sass:color";
       @use "@/shared/styles/variables" as *;
       @use "@/shared/styles/mixins" as *;
     `,

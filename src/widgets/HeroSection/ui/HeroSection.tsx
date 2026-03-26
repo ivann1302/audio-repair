@@ -1,6 +1,7 @@
-import Link from 'next/link'
+import Image from 'next/image'
 
 import type { PropsWithClassName } from '@/shared/types'
+import { Button, Container } from '@/shared/ui'
 
 import styles from './HeroSection.module.scss'
 
@@ -9,34 +10,51 @@ type Props = PropsWithClassName
 export function HeroSection({ className }: Props) {
   return (
     <section className={`${styles.root} ${className ?? ''}`}>
-      <div className={styles.inner}>
-        <span className={styles.eyebrow}>Частный мастер · Москва</span>
-        <h1 className={styles.title}>
-          РЕМОНТ
-          <br />
-          АУДИО
-          <br />
-          ТЕХНИКИ
-        </h1>
-        <p className={styles.subtitle}>
-          Усилители, ресиверы, виниловые проигрыватели,
-          <br />
-          акустика. Диагностика бесплатно.
-        </p>
-        <div className={styles.actions}>
-          <Link href="/#contacts" className={styles.btnPrimary}>
-            ОСТАВИТЬ ЗАЯВКУ
-          </Link>
-          <Link href="/#services" className={styles.btnSecondary}>
-            УСЛУГИ И ЦЕНЫ
-          </Link>
+      <Container className={styles.inner}>
+        <div className={styles.content}>
+          <span className={styles.eyebrow}>
+            Частный мастер · Москва · Работаю с 2010 года
+          </span>
+          <h1 className={styles.title}>
+            ВЕРНЁМ
+            <br />
+            ВАШУ
+            <br />
+            ТЕХНИКУ
+            <br />К ЖИЗНИ
+          </h1>
+          <p className={styles.subtitle}>
+            Усилители, ресиверы, виниловые проигрыватели,
+            <br />
+            акустика. Диагностика бесплатно.
+            <br />
+            Бережное отношение к вашей технике
+          </p>
+          <div className={styles.actions}>
+            <Button href="/#contacts" variant="primary" size="lg">
+              ОСТАВИТЬ ЗАЯВКУ
+            </Button>
+            <Button href="/#services" variant="secondary" size="lg">
+              УСЛУГИ И ЦЕНЫ
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.badge}>
-        <span className={styles.badgeNumber}>15</span>
-        <span className={styles.badgeLabel}>лет опыта</span>
-      </div>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/images/hero.webp"
+            alt="Ремонт аудиотехники"
+            width={1024}
+            height={1536}
+            className={styles.image}
+            priority
+          />
+          <div className={styles.badge}>
+            <span className={styles.badgeNumber}>15</span>
+            <span className={styles.badgeLabel}>лет опыта</span>
+          </div>
+        </div>
+      </Container>
     </section>
   )
 }

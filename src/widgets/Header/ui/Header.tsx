@@ -3,7 +3,9 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
+import { siteConfig } from '@/shared/config/seo'
 import type { PropsWithClassName } from '@/shared/types'
+import { Button } from '@/shared/ui'
 
 import styles from './Header.module.scss'
 
@@ -20,14 +22,17 @@ export function Header({ className }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className={`${styles.root} ${className ?? ''}`}>
+    <header className={[styles.root, className ?? ''].join(' ')}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoMark}>◎</span>
           <span className={styles.logoText}>AUDIO REPAIR</span>
         </Link>
 
-        <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
+        <nav
+          className={[styles.nav, menuOpen ? styles.navOpen : ''].join(' ')}
+          aria-hidden={!menuOpen ? true : undefined}
+        >
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
@@ -38,16 +43,20 @@ export function Header({ className }: Props) {
               {label}
             </Link>
           ))}
-          <a href="tel:+79001234567" className={styles.phone}>
-            +7 (900) 123-45-67
+          <a
+            href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
+            className={styles.phone}
+          >
+            {siteConfig.phone}
           </a>
-          <Link
+          <Button
+            variant="primary"
+            size="sm"
             href="/#contacts"
-            className={styles.cta}
             onClick={() => setMenuOpen(false)}
           >
             ЗАЯВКА
-          </Link>
+          </Button>
         </nav>
 
         <button
@@ -57,13 +66,22 @@ export function Header({ className }: Props) {
           onClick={() => setMenuOpen((v) => !v)}
         >
           <span
-            className={`${styles.burgerLine} ${menuOpen ? styles.burgerLineTop : ''}`}
+            className={[
+              styles.burgerLine,
+              menuOpen ? styles.burgerLineTop : '',
+            ].join(' ')}
           />
           <span
-            className={`${styles.burgerLine} ${menuOpen ? styles.burgerLineMid : ''}`}
+            className={[
+              styles.burgerLine,
+              menuOpen ? styles.burgerLineMid : '',
+            ].join(' ')}
           />
           <span
-            className={`${styles.burgerLine} ${menuOpen ? styles.burgerLineBot : ''}`}
+            className={[
+              styles.burgerLine,
+              menuOpen ? styles.burgerLineBot : '',
+            ].join(' ')}
           />
         </button>
       </div>

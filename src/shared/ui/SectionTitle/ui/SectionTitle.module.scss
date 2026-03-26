@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+// ─── Eyebrow ──────────────────────────────────────────────────────────────────
+
+.eyebrow {
+  @include eyebrow-text;
+
+  margin: 0;
+  color: $color-accent;
+}
+
+// ─── Title ────────────────────────────────────────────────────────────────────
+
+.title {
+  @include display-text($font-size-2xl);
+
+  margin: 0;
+  color: $color-text;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+// ─── Light (инвертированный для тёмных секций) ────────────────────────────────
+
+.light {
+  .title {
+    color: $color-text-inv;
+  }
+}

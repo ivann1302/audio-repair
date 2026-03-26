@@ -1,0 +1,63 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  justify-content: space-between;
+  padding: $spacing-lg;
+  background-color: $color-dark;
+  border: 1px solid $color-border-dark;
+}
+
+.text {
+  margin: 0;
+
+  p {
+    @include body-text($font-size-base);
+
+    margin: 0;
+    font-style: italic;
+    line-height: $lh-body;
+    color: $color-text-inv;
+
+    &::before {
+      margin-right: $spacing-xs;
+      font-size: $font-size-xl;
+      line-height: 0;
+      vertical-align: -0.4em;
+      color: $color-accent;
+      content: '\201C';
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.author {
+  @include eyebrow-text;
+
+  color: $color-text-inv;
+}
+
+.equipment {
+  @include body-text($font-size-sm);
+
+  color: $color-text-muted;
+}
+
+.date {
+  @include eyebrow-text;
+
+  color: $color-gray-mid;
+  white-space: nowrap;
+}
