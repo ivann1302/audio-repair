@@ -3,6 +3,10 @@ import type { Metadata } from 'next'
 import { siteConfig } from '@/shared/config/seo'
 import { AboutSection } from '@/widgets/AboutSection'
 import { AccentCTA } from '@/widgets/AccentCTA'
+import { BlogCarousel } from '@/widgets/BlogCarousel'
+import { ContactsSection } from '@/widgets/ContactsSection'
+import { FAQSection } from '@/widgets/FAQSection'
+import { Footer } from '@/widgets/Footer'
 import { Header } from '@/widgets/Header'
 import { HeroSection } from '@/widgets/HeroSection'
 import { MasterSection } from '@/widgets/MasterSection'
@@ -31,8 +35,10 @@ export default function HomePage() {
       <AccentCTA />
       <AboutSection />
       <ReviewsSection />
-      {/* TODO: <ContactsSection /> */}
-      {/* TODO: <Footer /> */}
+      <ContactsSection />
+      <FAQSection />
+      <BlogCarousel />
+      <Footer />
     </>
   )
 }

@@ -1,0 +1,184 @@
+.root {
+  padding: $section-padding-v $section-padding-h 0;
+  background: $color-black;
+
+  @include mobile {
+    padding: $section-padding-mob-v $section-padding-mob-h 0;
+  }
+}
+
+.inner {
+  display: flex;
+  gap: $spacing-2xl;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: $section-padding-v;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-xl;
+    padding-bottom: $section-padding-mob-v;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  max-width: 360px;
+}
+
+.logo {
+  display: inline-flex;
+  gap: $spacing-sm;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoSymbol {
+  @include display-text($font-size-lg);
+
+  color: $color-accent;
+}
+
+.logoText {
+  @include eyebrow-text;
+
+  font-size: $font-size-sm;
+  color: $color-text-inv;
+  letter-spacing: $ls-wide;
+}
+
+.tagline {
+  @include body-text($font-size-md);
+
+  margin-top: $spacing-sm;
+  color: $color-text-muted;
+}
+
+.phone {
+  @include display-text($font-size-xl);
+
+  margin-top: $spacing-sm;
+  color: $color-text-inv;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.contact {
+  @include body-text($font-size-md);
+
+  color: $color-text-muted;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &[href]:hover {
+    color: $color-accent;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.navTitle {
+  @include eyebrow-text;
+
+  font-size: $font-size-xs;
+  color: $color-text-inv;
+  letter-spacing: $ls-wider;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navLink {
+  @include body-text($font-size-base);
+
+  font-style: italic;
+  color: $color-text-muted;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.bottom {
+  @include flex-between;
+
+  align-items: center;
+  padding: $spacing-lg 0;
+  border-top: 1px solid $color-border-dark;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-sm;
+    align-items: flex-start;
+  }
+}
+
+.bottomRight {
+  display: flex;
+  gap: $spacing-xl;
+  align-items: center;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-sm;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.ctaButton {
+  @include eyebrow-text;
+
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-xs;
+  color: $color-black;
+  white-space: nowrap;
+  text-decoration: none;
+  background: $color-accent;
+  border: 1px solid $color-accent;
+  transition:
+    background $transition-fast,
+    border-color $transition-fast;
+
+  &:hover {
+    background: $color-accent-dark;
+    border-color: $color-accent-dark;
+  }
+}
+
+.copy {
+  @include eyebrow-text;
+
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+
+  @include mobile {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.made {
+  @include body-text($font-size-xs);
+
+  font-style: italic;
+  color: $color-text-muted;
+}

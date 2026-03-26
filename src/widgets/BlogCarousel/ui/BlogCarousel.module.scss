@@ -1,0 +1,186 @@
+.root {
+  padding: $section-padding-v $section-padding-h;
+  background: $color-bg;
+
+  @include mobile {
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.header {
+  @include flex-between;
+
+  align-items: flex-start;
+  padding: 0 $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+    padding: 0;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.title {
+  @include display-text($font-size-2xl);
+
+  color: $color-text;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.tagline {
+  @include body-text($font-size-md);
+
+  font-style: italic;
+  color: $color-text-muted;
+}
+
+.carouselWrapper {
+  position: relative;
+  padding: 0 $spacing-2xl;
+
+  @include mobile {
+    padding: 0;
+  }
+}
+
+.track {
+  display: flex;
+  gap: $spacing-lg;
+  padding: 0;
+  margin: 0;
+  overflow-x: scroll;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card {
+  display: flex;
+  flex: 0 0 calc((100% - #{$spacing-lg} * 2) / 3);
+  flex-direction: column;
+  scroll-snap-align: start;
+  background: $color-white;
+  border: 1px solid $color-border;
+
+  @include mobile {
+    flex: 0 0 100%;
+  }
+}
+
+.cover {
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: $color-gray-dark;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+}
+
+.category {
+  @include eyebrow-text;
+
+  font-size: $font-size-xs;
+  color: $color-accent;
+}
+
+.cardTitle {
+  @include display-text($font-size-md);
+
+  line-height: 1.2;
+  color: $color-text;
+}
+
+.excerpt {
+  @include body-text($font-size-base);
+
+  display: -webkit-box;
+  flex: 1;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  color: $color-text-muted;
+  -webkit-box-orient: vertical;
+}
+
+.meta {
+  @include eyebrow-text;
+
+  margin-top: $spacing-sm;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  padding: 0;
+  font-family: $font-display;
+  font-size: $font-size-2xl;
+  font-weight: 400;
+  line-height: 1;
+  color: $color-accent;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transform: translateY(-50%);
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-dark;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.arrowPrev {
+  left: 0;
+}
+
+.arrowNext {
+  right: 0;
+}
+
+.mobileControls {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    gap: $spacing-xl;
+    justify-content: center;
+    margin-top: $spacing-lg;
+  }
+}
+
+.mobileArrow {
+  padding: 0;
+  font-family: $font-display;
+  font-size: $font-size-2xl;
+  font-weight: 400;
+  line-height: 1;
+  color: $color-accent;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-dark;
+  }
+}

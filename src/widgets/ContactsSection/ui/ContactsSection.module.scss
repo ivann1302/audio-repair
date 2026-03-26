@@ -1,0 +1,78 @@
+.root {
+  padding: $section-padding-v $section-padding-h;
+  background: $color-bg-section;
+
+  @include mobile {
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  margin-top: $spacing-2xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-lg 0;
+  border-bottom: 1px solid $color-border;
+
+  &:first-child {
+    border-top: 1px solid $color-border;
+  }
+}
+
+.label {
+  @include eyebrow-text;
+
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.value {
+  @include body-text($font-size-lg);
+
+  color: $color-text;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &[href]:hover {
+    color: $color-accent;
+  }
+}
+
+.mapWrapper {
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+
+  @include mobile {
+    min-height: 300px;
+  }
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
