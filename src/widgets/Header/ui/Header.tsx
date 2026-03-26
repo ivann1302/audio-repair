@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { siteConfig } from '@/shared/config/seo'
 import type { PropsWithClassName } from '@/shared/types'
@@ -20,9 +20,22 @@ type Props = PropsWithClassName
 
 export function Header({ className }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className={[styles.root, className ?? ''].join(' ')}>
+    <header
+      className={[
+        styles.root,
+        scrolled ? styles.scrolled : '',
+        className ?? '',
+      ].join(' ')}
+    >
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoMark}>◎</span>

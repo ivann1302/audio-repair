@@ -17,7 +17,9 @@
   @include mobile {
     flex-direction: column;
     gap: $spacing-xl;
+    align-items: center;
     padding-bottom: $section-padding-mob-v;
+    text-align: center;
   }
 }
 
@@ -33,6 +35,10 @@
   gap: $spacing-sm;
   align-items: center;
   text-decoration: none;
+
+  @include mobile {
+    justify-content: center;
+  }
 }
 
 .logoSymbol {
@@ -127,7 +133,7 @@
   @include mobile {
     flex-direction: column;
     gap: $spacing-sm;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 
@@ -157,10 +163,23 @@
   transition:
     background $transition-fast,
     border-color $transition-fast;
+  animation: cta-pulse 2s ease-in-out infinite;
 
   &:hover {
     background: $color-accent-dark;
     border-color: $color-accent-dark;
+    animation-play-state: paused;
+  }
+}
+
+@keyframes cta-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb($color-accent, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgb($color-accent, 0);
   }
 }
 
@@ -177,7 +196,7 @@
 }
 
 .made {
-  @include body-text($font-size-xs);
+  @include body-text($font-size-base);
 
   font-style: italic;
   color: $color-text-muted;

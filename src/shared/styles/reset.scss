@@ -24,6 +24,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  padding-top: 64px; // высота Header
+
+  @media (width <= 767px) {
+    padding-top: 56px; // высота Header на мобильных
+  }
+
   overflow-x: hidden;
   font-family: var(--font-body), serif;
   font-size: 1rem;
@@ -89,4 +95,10 @@ select {
   outline: none;
   background: none;
   border: none;
+}
+
+// ─── Next.js Dev Toolbar ───────────────────────────────────────────────────
+
+#next-logo {
+  display: none !important;
 }

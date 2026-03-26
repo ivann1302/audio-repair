@@ -1,3 +1,51 @@
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .root {
   padding: $section-padding-v $section-padding-h;
   background: $color-bg-section;
@@ -120,5 +168,41 @@
 
   &:hover {
     color: $color-accent;
+  }
+}
+
+// ─── Desktop grid animations ────────────────────────────────────────────────
+
+@include desktop {
+  .card {
+    opacity: 0;
+  }
+
+  .animated {
+    // Wave 1
+    .card:nth-child(1) {
+      animation: slide-in-left 0.9s ease-out 0s both;
+    }
+
+    .card:nth-child(2) {
+      animation: slide-in-top 0.9s ease-out 0.2s both;
+    }
+
+    .card:nth-child(3) {
+      animation: slide-in-left 0.9s ease-out 0.4s both;
+    }
+
+    // Wave 2 — starts after wave 1 completes (~1.3s)
+    .card:nth-child(4) {
+      animation: slide-in-left 0.9s ease-out 1.3s both;
+    }
+
+    .card:nth-child(5) {
+      animation: slide-in-bottom 0.9s ease-out 1.5s both;
+    }
+
+    .card:nth-child(6) {
+      animation: slide-in-right 0.9s ease-out 1.7s both;
+    }
   }
 }
