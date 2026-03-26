@@ -1,0 +1,96 @@
+.root {
+  padding-top: $section-padding-v;
+  padding-bottom: $section-padding-v;
+  background: $color-black;
+
+  @include mobile {
+    padding-top: $section-padding-mob-v;
+    padding-bottom: $section-padding-mob-v;
+  }
+}
+
+.header {
+  @include flex-between;
+
+  align-items: flex-start;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.title {
+  @include display-text($font-size-2xl);
+
+  color: $color-text-inv;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.tagline {
+  @include body-text($font-size-md);
+
+  color: $color-gray-mid;
+  text-align: right;
+
+  @include mobile {
+    text-align: left;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: $color-border-dark;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  padding: $spacing-xl $spacing-lg;
+  background: $color-dark;
+
+  &:nth-child(even) {
+    background: $color-gray-dark;
+  }
+}
+
+.number {
+  @include display-text($font-size-2xl);
+
+  line-height: 1;
+  color: $color-accent;
+}
+
+.cardTitle {
+  @include display-text($font-size-xl);
+
+  display: flex;
+  flex-direction: column;
+  color: $color-text-inv;
+}
+
+.titleLine {
+  display: block;
+}
+
+.cardDescription {
+  @include body-text($font-size-md);
+
+  font-weight: 600;
+  color: $color-gray-mid;
+}

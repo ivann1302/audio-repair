@@ -1,0 +1,79 @@
+.root {
+  padding: 0;
+  overflow: hidden;
+  background: $color-bg;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: 600px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  background: $color-gray-dark;
+
+  @include mobile {
+    min-height: 300px;
+  }
+}
+
+.photoPlaceholder {
+  @include eyebrow-text;
+
+  font-size: $font-size-sm;
+  color: $color-gray-mid;
+  letter-spacing: $ls-wider;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  justify-content: center;
+  padding: $section-padding-v $section-padding-h;
+
+  @include mobile {
+    gap: $spacing-lg;
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.bio {
+  @include body-text($font-size-md);
+
+  color: $color-text-muted;
+}
+
+.achievements {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: 0;
+  padding-top: $spacing-lg;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid $color-border;
+}
+
+.achievementItem {
+  @include body-text($font-size-base);
+
+  display: flex;
+  gap: $spacing-md;
+  color: $color-text;
+}
+
+.bullet {
+  flex-shrink: 0;
+  color: $color-accent;
+}
