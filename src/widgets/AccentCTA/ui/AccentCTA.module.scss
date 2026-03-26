@@ -1,0 +1,93 @@
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  align-items: center;
+  padding: $section-padding-v $section-padding-h;
+  background: $color-accent;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.eyebrow {
+  @include eyebrow-text;
+
+  display: flex;
+  gap: $spacing-md;
+  align-items: center;
+  font-size: $font-size-xs;
+  color: $color-black;
+}
+
+.eyebrowLine {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 1px;
+  background: $color-black;
+}
+
+.title {
+  @include display-text($font-size-3xl);
+
+  color: $color-black;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  align-items: flex-start;
+
+  @include mobile {
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.description {
+  @include body-text($font-size-lg);
+
+  max-width: 280px;
+  font-style: italic;
+  color: $color-black;
+
+  @include mobile {
+    max-width: 100%;
+  }
+}
+
+.button {
+  @include eyebrow-text;
+
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-base;
+  color: $color-white;
+  text-decoration: none;
+  background: $color-black;
+  border: 1px solid $color-black;
+  transition:
+    background $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background: $color-gray-dark;
+    border-color: $color-gray-dark;
+  }
+}

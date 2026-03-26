@@ -1,0 +1,125 @@
+.root {
+  padding: $section-padding-v $section-padding-h;
+  background: $color-bg-section;
+
+  @include mobile {
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.header {
+  @include flex-between;
+
+  align-items: flex-start;
+  margin-bottom: $spacing-lg;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.title {
+  @include display-text($font-size-2xl);
+
+  color: $color-text;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.tagline {
+  @include body-text($font-size-lg);
+
+  font-style: italic;
+  color: $color-text-muted;
+}
+
+.divider {
+  margin: 0 0 $spacing-2xl;
+  border: none;
+  border-top: 1px solid $color-border;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-xl $spacing-lg;
+  background: $color-white;
+}
+
+.cardDark {
+  background: $color-black;
+
+  .quote {
+    color: $color-accent;
+  }
+
+  .text {
+    color: $color-text-inv;
+  }
+
+  .cardDivider {
+    border-color: $color-border-dark;
+  }
+
+  .author {
+    color: $color-gray-mid;
+  }
+
+  .equipment {
+    color: $color-text-inv;
+  }
+}
+
+.quote {
+  @include display-text($font-size-2xl);
+
+  line-height: 1;
+  color: $color-accent;
+}
+
+.text {
+  @include body-text($font-size-md);
+
+  flex: 1;
+  font-style: italic;
+  color: $color-text;
+}
+
+.cardDivider {
+  margin: $spacing-sm 0;
+  border: none;
+  border-top: 1px solid $color-border;
+}
+
+.author {
+  @include eyebrow-text;
+
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.equipment {
+  font-weight: 700;
+  color: $color-text;
+}

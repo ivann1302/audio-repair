@@ -6,7 +6,7 @@
 
 .inner {
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 45% 55%;
   min-height: 600px;
 
   @include mobile {
@@ -19,10 +19,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  order: 2;
   min-height: 500px;
   background: $color-gray-dark;
 
   @include mobile {
+    order: 0;
     min-height: 300px;
   }
 }

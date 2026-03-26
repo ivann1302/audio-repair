@@ -1,0 +1,114 @@
+.root {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: 580px;
+  overflow: hidden;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: $color-gray-dark;
+
+  @include mobile {
+    min-height: 280px;
+  }
+}
+
+.photoPlaceholder {
+  @include eyebrow-text;
+
+  font-size: $font-size-sm;
+  color: $color-gray-mid;
+  letter-spacing: $ls-wider;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $section-padding-v $section-padding-h;
+  background: $color-bg;
+
+  @include mobile {
+    gap: $spacing-2xl;
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.eyebrow {
+  @include eyebrow-text;
+
+  display: flex;
+  gap: $spacing-md;
+  align-items: center;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.eyebrowLine {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 1px;
+  background: $color-text-muted;
+}
+
+.title {
+  @include display-text($font-size-2xl);
+
+  color: $color-text;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.bio {
+  @include body-text($font-size-md);
+
+  color: $color-text-muted;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  padding: 0;
+  padding-top: $spacing-lg;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid $color-border;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.statValue {
+  @include display-text($font-size-xl);
+
+  color: $color-text;
+}
+
+.statLabel {
+  @include eyebrow-text;
+
+  font-size: $font-size-xs;
+  line-height: 1.4;
+  color: $color-text-muted;
+}
