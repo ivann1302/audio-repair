@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { siteConfig } from '@/shared/config/seo'
 import { Header } from '@/widgets/Header'
 import { HeroSection } from '@/widgets/HeroSection'
+import { ServicesSection } from '@/widgets/ServicesSection'
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -19,7 +20,7 @@ export default function HomePage() {
     <>
       <Header />
       <HeroSection />
-      {/* TODO: <ServicesSection /> */}
+      <ServicesSection />
       {/* TODO: <ProcessSection /> */}
       {/* TODO: <MasterSection /> */}
       {/* TODO: <AccentCTA /> */}

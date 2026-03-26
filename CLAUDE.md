@@ -125,7 +125,7 @@ Next.js 16, SCSS токены, шрифты, ESLint/Prettier, Jest/Playwright
 Service, Review, Article — types + data.ts + карточка
 
 **Этап 3 — Виджеты главной** `[ ]`
-Header [x], HeroSection [~], ServicesSection, ProcessSection,
+Header [x], HeroSection [x], ServicesSection [~], ProcessSection,
 MasterSection, AccentCTA, TestimonialsSection, ContactsSection, Footer
 
 **Этап 4 — Главная страница + форма** `[ ]`

@@ -1,0 +1,124 @@
+.root {
+  padding: $section-padding-v $section-padding-h;
+  background: $color-bg-section;
+
+  @include mobile {
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.header {
+  @include flex-between;
+
+  align-items: flex-start;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.title {
+  @include display-text($font-size-2xl);
+
+  color: $color-text;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.tagline {
+  @include body-text($font-size-md);
+
+  max-width: 200px;
+  font-weight: 600;
+  color: $color-text-muted;
+  text-align: right;
+
+  @include mobile {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: $color-border;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-xl $spacing-lg;
+  background: $color-dark;
+  transition: background $transition-fast;
+
+  &:nth-child(even) {
+    background: $color-gray-dark;
+  }
+
+  &:hover {
+    background: $color-gray-dark;
+
+    &:nth-child(even) {
+      background: $color-black;
+    }
+  }
+}
+
+.number {
+  @include eyebrow-text;
+
+  font-size: 18px;
+  color: $color-accent;
+}
+
+.cardTitle {
+  @include display-text($font-size-xl);
+
+  color: $color-text-inv;
+}
+
+.cardDescription {
+  @include body-text($font-size-md);
+
+  flex: 1;
+  font-weight: 600;
+  color: $color-text-muted;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $spacing-xl;
+}
+
+.allLink {
+  @include eyebrow-text;
+
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
