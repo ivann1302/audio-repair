@@ -17,7 +17,7 @@ type ButtonAsButton = ButtonOwnProps &
   }
 
 type ButtonAsLink = ButtonOwnProps &
-  Omit<ComponentPropsWithoutRef<typeof Link>, keyof ButtonOwnProps> & {
+  Omit<ComponentPropsWithoutRef<typeof Link>, keyof ButtonOwnProps | 'href'> & {
     href: string
   }
 
@@ -43,7 +43,7 @@ export function Button({
       <Link
         href={href}
         className={classes}
-        {...(rest as ComponentPropsWithoutRef<typeof Link>)}
+        {...(rest as Omit<ComponentPropsWithoutRef<typeof Link>, 'href'>)}
       >
         {children}
       </Link>
