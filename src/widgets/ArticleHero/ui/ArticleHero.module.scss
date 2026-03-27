@@ -1,0 +1,107 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 60svh;
+  overflow: hidden;
+  background: $color-black;
+
+  @include mobile {
+    min-height: 50svh;
+  }
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 20%) 0%,
+    rgb(0 0 0 / 75%) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding-top: $section-padding-v;
+  padding-bottom: $section-padding-v;
+
+  @include mobile {
+    gap: $spacing-sm;
+    padding-top: $section-padding-mob-v;
+    padding-bottom: $section-padding-mob-v;
+  }
+}
+
+// ─── Breadcrumbs ───────────────────────────────────────────────────────────────
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  align-items: center;
+  margin-bottom: $spacing-sm;
+}
+
+.crumb {
+  @include eyebrow-text;
+
+  color: rgb(255 255 255 / 60%);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.crumbCurrent {
+  @include eyebrow-text;
+
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgb(255 255 255 / 40%);
+  white-space: nowrap;
+}
+
+.sep {
+  @include eyebrow-text;
+
+  color: rgb(255 255 255 / 30%);
+}
+
+// ─── Meta ──────────────────────────────────────────────────────────────────────
+
+.category {
+  @include eyebrow-text;
+
+  color: $color-accent;
+}
+
+.title {
+  @include display-text($font-size-2xl);
+
+  max-width: 800px;
+  color: $color-white;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.date {
+  @include eyebrow-text;
+
+  color: rgb(255 255 255 / 50%);
+}

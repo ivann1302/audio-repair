@@ -1,0 +1,120 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+}
+
+.honeypot {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+}
+
+// ─── Fields ────────────────────────────────────────────────────────────────────
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-family: $font-display;
+  font-size: $font-size-sm;
+  font-weight: 400;
+  color: $color-gray-mid;
+  letter-spacing: $ls-wider;
+}
+
+.optional {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: $color-gray-mid;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.input,
+.textarea {
+  padding: $spacing-sm $spacing-md;
+  font-family: $font-body;
+  font-size: $font-size-md;
+  color: $color-white;
+  outline: none;
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid $color-border-dark;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: $color-gray-mid;
+  }
+
+  &:focus {
+    border-color: $color-accent;
+  }
+}
+
+.inputError {
+  border-color: #e53e3e;
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+// ─── Errors ────────────────────────────────────────────────────────────────────
+
+.error {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: #e53e3e;
+}
+
+.serverError {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  color: #e53e3e;
+}
+
+// ─── Submit ────────────────────────────────────────────────────────────────────
+
+.submit {
+  width: 100%;
+  margin-top: $spacing-xs;
+}
+
+// ─── Success ───────────────────────────────────────────────────────────────────
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  align-items: center;
+  padding: $spacing-3xl $spacing-xl;
+  text-align: center;
+}
+
+.successIcon {
+  font-size: 48px;
+  color: $color-accent;
+}
+
+.successTitle {
+  font-family: $font-display;
+  font-size: $font-size-xl;
+  color: $color-white;
+  letter-spacing: $ls-wide;
+}
+
+.successText {
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  color: $color-gray-mid;
+}

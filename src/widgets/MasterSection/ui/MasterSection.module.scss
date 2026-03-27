@@ -79,3 +79,15 @@
   flex-shrink: 0;
   color: $color-accent;
 }
+
+.moreLink {
+  @include eyebrow-text;
+
+  align-self: flex-start;
+  color: $color-accent;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

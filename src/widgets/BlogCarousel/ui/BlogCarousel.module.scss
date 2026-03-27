@@ -22,6 +22,18 @@
   }
 }
 
+.allLink {
+  @include eyebrow-text;
+
+  align-self: flex-end;
+  color: $color-accent;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-dark;
+  }
+}
+
 .title {
   @include display-text($font-size-2xl);
 
@@ -73,6 +85,18 @@
 
   @include mobile {
     flex: 0 0 100%;
+  }
+}
+
+.cardLink {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.85;
   }
 }
 

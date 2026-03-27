@@ -10,7 +10,6 @@ import styles from './ServicesSection.module.scss'
 export function ServicesSection() {
   const gridRef = useRef<HTMLUListElement>(null)
   const [animated, setAnimated] = useState(false)
-
   useEffect(() => {
     const el = gridRef.current
     if (!el) return
@@ -56,7 +55,7 @@ export function ServicesSection() {
 
         <div className={styles.footer}>
           <a href="/services" className={styles.allLink}>
-            Все услуги →
+            Все услуги и цены →
           </a>
         </div>
       </Container>

@@ -6,7 +6,11 @@
   "rules": {
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]*$",
     "scss/at-rule-no-unknown": true,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { "ignorePseudoClasses": ["global", "local"] }
+    ]
   },
   "ignoreFiles": [".next/**", "node_modules/**", "coverage/**"]
 }

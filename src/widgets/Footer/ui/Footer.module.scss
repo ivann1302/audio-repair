@@ -87,6 +87,17 @@
   }
 }
 
+.navGroup {
+  display: flex;
+  gap: $spacing-2xl;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-xl;
+    align-items: center;
+  }
+}
+
 .nav {
   display: flex;
   flex-direction: column;

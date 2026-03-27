@@ -2,12 +2,19 @@ import Link from 'next/link'
 
 import styles from './Footer.module.scss'
 
+const navLinks = [
+  { label: 'Услуги', href: '/services' },
+  { label: 'О мастере', href: '/master' },
+  { label: 'Блог', href: '/blog' },
+  { label: 'Контакты', href: '/#contacts' },
+]
+
 const serviceLinks = [
-  { label: 'Усилители', href: '/services/amplifiers' },
-  { label: 'Виниловые проигрыватели', href: '/services/vinyl' },
-  { label: 'Кассетные деки', href: '/services/tape-recorders' },
-  { label: 'Тюнеры и ресиверы', href: '/services/receivers' },
-  { label: 'CD-проигрыватели', href: '/services/cd-players' },
+  { label: 'Усилители', href: '/services#amplifiers' },
+  { label: 'Виниловые проигрыватели', href: '/services#vinyl' },
+  { label: 'Кассетные деки', href: '/services#tape-recorders' },
+  { label: 'Тюнеры и ресиверы', href: '/services#receivers' },
+  { label: 'CD-проигрыватели', href: '/services#cd-players' },
 ]
 
 export function Footer() {
@@ -33,18 +40,33 @@ export function Footer() {
           <span className={styles.contact}>Москва, м. Таганская</span>
         </div>
 
-        <nav className={styles.nav}>
-          <p className={styles.navTitle}>УСЛУГИ</p>
-          <ul className={styles.navList}>
-            {serviceLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className={styles.navLink}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className={styles.navGroup}>
+          <nav className={styles.nav}>
+            <p className={styles.navTitle}>НАВИГАЦИЯ</p>
+            <ul className={styles.navList}>
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={styles.navLink}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav className={styles.nav}>
+            <p className={styles.navTitle}>УСЛУГИ</p>
+            <ul className={styles.navList}>
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className={styles.navLink}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
 
       <div className={styles.bottom}>
@@ -52,9 +74,9 @@ export function Footer() {
           © 2007–2025 AUDIO REPAIR. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
         </span>
         <div className={styles.bottomRight}>
-          <a href="/contact" className={styles.ctaButton}>
+          <Link href="/#contacts" className={styles.ctaButton}>
             ОСТАВИТЬ ЗАЯВКУ
-          </a>
+          </Link>
           <span className={styles.made}>
             Сделано с уважением к аналоговому звуку
           </span>

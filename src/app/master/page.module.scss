@@ -1,0 +1,448 @@
+// ─── Shared ────────────────────────────────────────────────────────────────────
+
+.eyebrow {
+  @include eyebrow-text;
+
+  margin-bottom: $spacing-md;
+  color: $color-accent;
+}
+
+.eyebrowDark {
+  @include eyebrow-text;
+
+  margin-bottom: $spacing-md;
+  color: $color-accent;
+}
+
+.eyebrowLight {
+  @include eyebrow-text;
+
+  margin-bottom: $spacing-md;
+  color: $color-accent;
+}
+
+// ─── Hero ──────────────────────────────────────────────────────────────────────
+
+.heroBtn {
+  align-self: flex-start;
+}
+
+.hero {
+  overflow: hidden;
+  background: $color-black;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90svh;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  justify-content: center;
+  padding: $section-padding-v 0;
+
+  @include mobile {
+    gap: $spacing-lg;
+    order: 2;
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.heroName {
+  @include display-text($font-size-3xl);
+
+  color: $color-white;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.heroSub {
+  @include body-text($font-size-lg);
+
+  color: $color-gray-mid;
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
+}
+
+.heroPhoto {
+  position: relative;
+  min-height: 500px;
+
+  @include mobile {
+    order: 1;
+    min-height: 60svh;
+    margin: 0 calc(-1 * $spacing-md);
+  }
+}
+
+// ─── Bio ───────────────────────────────────────────────────────────────────────
+
+.bio {
+  padding: $section-padding-v 0;
+  background: $color-bg;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.bioInner {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: $spacing-2xl;
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+}
+
+.bioText {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.quote {
+  @include display-text($font-size-xl);
+
+  padding-left: $spacing-lg;
+  margin: 0;
+  font-style: normal;
+  color: $color-text;
+  border-left: 3px solid $color-accent;
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
+}
+
+.bioPara {
+  @include body-text($font-size-md);
+
+  color: $color-text-muted;
+}
+
+.bioPhotoWrap {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.bioPhoto {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 3 / 4;
+  padding: $spacing-md;
+  background: $color-gray-dark;
+}
+
+.photoLabel {
+  @include eyebrow-text;
+
+  color: $color-gray-mid;
+}
+
+.bioAccent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-xl;
+  background: $color-accent;
+}
+
+.bioAccentNum {
+  @include display-text($font-size-3xl);
+
+  color: $color-black;
+}
+
+.bioAccentLabel {
+  @include eyebrow-text;
+
+  color: $color-black;
+}
+
+// ─── Stats ─────────────────────────────────────────────────────────────────────
+
+.stats {
+  padding: $section-padding-v 0;
+  background: $color-black;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.statsList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-xl;
+  border: 1px solid $color-border-dark;
+}
+
+.statValue {
+  @include display-text($font-size-2xl);
+
+  color: $color-accent;
+}
+
+.statLabel {
+  @include body-text($font-size-sm);
+
+  color: $color-gray-mid;
+}
+
+// ─── Skills ────────────────────────────────────────────────────────────────────
+
+.skills {
+  padding: $section-padding-v 0;
+  background: $color-bg-section;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.skillsTitle {
+  @include display-text($font-size-2xl);
+
+  margin-bottom: $spacing-2xl;
+  color: $color-text;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-xl;
+  }
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skillCard {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-xl;
+  background: $color-white;
+  border: 1px solid $color-border;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
+.skillMark {
+  font-size: 24px;
+  color: $color-accent;
+}
+
+.skillName {
+  @include display-text($font-size-base);
+
+  color: $color-text;
+}
+
+.skillText {
+  @include body-text($font-size-base);
+
+  color: $color-text-muted;
+}
+
+// ─── Process ───────────────────────────────────────────────────────────────────
+
+.process {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 640px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+.processPhoto {
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.processOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 40%);
+}
+
+.processCaption {
+  @include eyebrow-text;
+
+  position: absolute;
+  bottom: $spacing-xl;
+  left: $spacing-xl;
+  color: $color-white;
+}
+
+.processContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  justify-content: center;
+  padding: $section-padding-v $section-padding-h;
+  background: $color-bg;
+
+  @include mobile {
+    padding: $section-padding-mob-v $section-padding-mob-h;
+  }
+}
+
+.processTitle {
+  @include display-text($font-size-2xl);
+
+  color: $color-text;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.principlesList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.principle {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+}
+
+.principleAccent {
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-family: $font-display;
+  font-size: $font-size-md;
+  color: $color-accent;
+}
+
+.principleTitle {
+  @include display-text($font-size-base);
+
+  display: block;
+  margin-bottom: $spacing-xs;
+  color: $color-text;
+}
+
+.principleText {
+  @include body-text($font-size-base);
+
+  color: $color-text-muted;
+}
+
+// ─── CTA ───────────────────────────────────────────────────────────────────────
+
+.cta {
+  padding: $section-padding-v 0;
+  background: $color-accent;
+}
+
+.ctaInner {
+  display: flex;
+  gap: $spacing-xl;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.ctaTitle {
+  @include display-text($font-size-2xl);
+
+  color: $color-black;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.ctaSub {
+  @include body-text($font-size-md);
+
+  margin-top: $spacing-sm;
+  color: $color-black;
+  opacity: 0.75;
+}
+
+.ctaActions {
+  display: flex;
+  flex-shrink: 0;
+  gap: $spacing-md;
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.btnDark {
+  color: $color-white;
+  background-color: $color-black;
+  border-color: $color-black;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-gray-dark;
+    border-color: $color-gray-dark;
+  }
+}

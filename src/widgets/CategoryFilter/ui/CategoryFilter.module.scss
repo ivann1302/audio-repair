@@ -1,0 +1,55 @@
+.root {
+  background: $color-bg-section;
+  border-bottom: 1px solid $color-border;
+}
+
+.list {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  overflow-x: auto;
+
+  // скрыть скроллбар на мобильных, но оставить скролл
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.item {
+  @include eyebrow-text;
+
+  position: relative;
+  padding: $spacing-md $spacing-lg;
+  color: $color-gray-mid;
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color $transition-fast;
+
+  &::after {
+    position: absolute;
+    right: $spacing-lg;
+    bottom: 0;
+    left: $spacing-lg;
+    height: 2px;
+    content: '';
+    background: $color-accent;
+    opacity: 0;
+    transition: opacity $transition-fast;
+  }
+
+  &:hover {
+    color: $color-black;
+  }
+}
+
+.itemActive {
+  color: $color-black;
+
+  &::after {
+    opacity: 1;
+  }
+}

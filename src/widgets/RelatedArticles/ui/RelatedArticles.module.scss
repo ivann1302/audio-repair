@@ -1,0 +1,41 @@
+.root {
+  padding: $section-padding-v 0;
+  background: $color-bg-section;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.eyebrow {
+  @include eyebrow-text;
+
+  margin-bottom: $spacing-sm;
+  color: $color-accent;
+}
+
+.title {
+  @include display-text($font-size-2xl);
+
+  margin-bottom: $spacing-2xl;
+  color: $color-text;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-xl;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}

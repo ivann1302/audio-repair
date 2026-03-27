@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { articles } from '@/entities/Article'
@@ -50,8 +51,13 @@ export function BlogCarousel() {
   return (
     <section className={styles.root}>
       <div className={styles.header}>
-        <h2 className={styles.title}>БЛОГ</h2>
-        <p className={styles.tagline}>Статьи об аналоговом звуке и ремонте</p>
+        <div>
+          <h2 className={styles.title}>БЛОГ</h2>
+          <p className={styles.tagline}>Статьи об аналоговом звуке и ремонте</p>
+        </div>
+        <Link href="/blog" className={styles.allLink}>
+          Все статьи →
+        </Link>
       </div>
 
       <div className={styles.carouselWrapper}>
@@ -71,17 +77,17 @@ export function BlogCarousel() {
         >
           {articles.map((article) => (
             <li key={article.slug} className={styles.card}>
-              <div className={styles.cover} />
-              <div className={styles.content}>
-                <span className={styles.category}>
-                  {categoryLabels[article.category] ?? article.category}
-                </span>
-                <h3 className={styles.cardTitle}>{article.title}</h3>
-                <p className={styles.excerpt}>{article.excerpt}</p>
-                <p className={styles.meta}>
-                  {article.publishedAt} · {article.readTime} мин
-                </p>
-              </div>
+              <Link href={`/blog/${article.slug}`} className={styles.cardLink}>
+                <div className={styles.cover} />
+                <div className={styles.content}>
+                  <span className={styles.category}>
+                    {categoryLabels[article.category] ?? article.category}
+                  </span>
+                  <h3 className={styles.cardTitle}>{article.title}</h3>
+                  <p className={styles.excerpt}>{article.excerpt}</p>
+                  <p className={styles.meta}>{article.publishedAt}</p>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>

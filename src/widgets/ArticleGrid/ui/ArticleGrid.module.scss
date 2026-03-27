@@ -1,0 +1,107 @@
+.root {
+  padding: $section-padding-v 0;
+  background: $color-bg;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+// ─── Featured ──────────────────────────────────────────────────────────────────
+
+.featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  text-decoration: none;
+  border: 1px solid $color-border;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+
+    .featuredTitle {
+      color: $color-accent;
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.featuredCover {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: $color-gray-light;
+
+  @include mobile {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.featuredBody {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+}
+
+.featuredCategory {
+  @include eyebrow-text;
+
+  color: $color-accent;
+}
+
+.featuredTitle {
+  @include display-text($font-size-xl);
+
+  color: $color-text;
+  transition: color $transition-fast;
+}
+
+.featuredExcerpt {
+  @include body-text($font-size-md);
+
+  flex: 1;
+  color: $color-text-muted;
+}
+
+.featuredDate {
+  @include eyebrow-text;
+
+  color: $color-text-muted;
+}
+
+// ─── Grid ──────────────────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── Empty ─────────────────────────────────────────────────────────────────────
+
+.empty {
+  @include body-text($font-size-lg);
+
+  padding: $spacing-3xl 0;
+  color: $color-text-muted;
+  text-align: center;
+}

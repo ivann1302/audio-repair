@@ -15,7 +15,7 @@ const contacts = [
 
 export function ContactsSection() {
   return (
-    <section className={styles.root}>
+    <section id="contacts" className={styles.root}>
       <Container>
         <SectionTitle eyebrow="КАК НАС НАЙТИ" title="КОНТАКТЫ" />
 

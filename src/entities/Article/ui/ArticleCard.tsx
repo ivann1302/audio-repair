@@ -40,7 +40,6 @@ export function ArticleCard({ article, className }: Props) {
           <span className={styles.category}>
             {categoryLabels[article.category]}
           </span>
-          <span className={styles.readTime}>{article.readTime} мин</span>
         </div>
         <h3 className={styles.title}>{article.title}</h3>
         <p className={styles.excerpt}>{article.excerpt}</p>

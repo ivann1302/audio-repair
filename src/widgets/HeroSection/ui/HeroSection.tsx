@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 
+import { useAppStore } from '@/shared/lib/store'
 import type { PropsWithClassName } from '@/shared/types'
 import { Button, Container } from '@/shared/ui'
 
@@ -8,6 +11,8 @@ import styles from './HeroSection.module.scss'
 type Props = PropsWithClassName
 
 export function HeroSection({ className }: Props) {
+  const openRepairModal = useAppStore((s) => s.openRepairModal)
+
   return (
     <section className={`${styles.root} ${className ?? ''}`}>
       <Container className={styles.inner}>
@@ -31,10 +36,10 @@ export function HeroSection({ className }: Props) {
             Бережное отношение к вашей технике
           </p>
           <div className={styles.actions}>
-            <Button href="/#contacts" variant="primary" size="lg">
+            <Button variant="primary" size="lg" onClick={openRepairModal}>
               ОСТАВИТЬ ЗАЯВКУ
             </Button>
-            <Button href="/#services" variant="secondary" size="lg">
+            <Button href="/services" variant="secondary" size="lg">
               УСЛУГИ И ЦЕНЫ
             </Button>
           </div>

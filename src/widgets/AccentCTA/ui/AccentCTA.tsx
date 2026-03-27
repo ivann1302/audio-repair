@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+import { useAppStore } from '@/shared/lib/store'
+
 import styles from './AccentCTA.module.scss'
 
 export function AccentCTA() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const [visible, setVisible] = useState(false)
+  const openRepairModal = useAppStore((s) => s.openRepairModal)
 
   useEffect(() => {
     const el = titleRef.current
@@ -50,9 +53,9 @@ export function AccentCTA() {
           Привезите аппарат или опишите проблему по телефону. Диагностика —
           бесплатно. Работаем без выходных.
         </p>
-        <a href="/contact" className={styles.button}>
+        <button onClick={openRepairModal} className={styles.button}>
           ОСТАВИТЬ ЗАЯВКУ →
-        </a>
+        </button>
       </div>
     </section>
   )

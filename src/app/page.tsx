@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { RepairRequestModal } from '@/features/RepairRequest'
 import { siteConfig } from '@/shared/config/seo'
 import { AboutSection } from '@/widgets/AboutSection'
 import { AccentCTA } from '@/widgets/AccentCTA'
@@ -39,6 +40,7 @@ export default function HomePage() {
       <FAQSection />
       <BlogCarousel />
       <Footer />
+      <RepairRequestModal />
     </>
   )
 }

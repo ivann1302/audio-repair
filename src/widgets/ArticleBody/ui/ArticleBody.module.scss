@@ -1,0 +1,200 @@
+.root {
+  padding: $section-padding-v 0;
+  background: $color-bg;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: $spacing-2xl;
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: 1fr 280px;
+    gap: $spacing-xl;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── Content ───────────────────────────────────────────────────────────────────
+
+.content {
+  @include body-text($font-size-lg);
+
+  min-width: 0;
+  color: $color-text;
+
+  :global(h2) {
+    @include display-text($font-size-xl);
+
+    margin-top: $spacing-2xl;
+    margin-bottom: $spacing-lg;
+    color: $color-text;
+
+    @include mobile {
+      margin-top: $spacing-xl;
+      font-size: $font-size-md;
+    }
+  }
+
+  :global(p) {
+    margin-bottom: $spacing-lg;
+    color: $color-text-muted;
+  }
+
+  :global(ul),
+  :global(ol) {
+    padding-left: $spacing-xl;
+    margin-bottom: $spacing-lg;
+    color: $color-text-muted;
+
+    li {
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  :global(strong) {
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
+}
+
+// ─── Sidebar ───────────────────────────────────────────────────────────────────
+
+.sidebar {
+  position: sticky;
+  top: calc(64px + $spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @include mobile {
+    position: static;
+  }
+}
+
+// ─── TOC ───────────────────────────────────────────────────────────────────────
+
+.toc {
+  padding: $spacing-lg;
+  border: 1px solid $color-border;
+}
+
+.tocTitle {
+  @include eyebrow-text;
+
+  margin-bottom: $spacing-md;
+  color: $color-text-muted;
+}
+
+.tocList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.tocLink {
+  @include body-text($font-size-base);
+
+  color: $color-text-muted;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+// ─── Author ────────────────────────────────────────────────────────────────────
+
+.author {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+  padding: $spacing-lg;
+  border: 1px solid $color-border;
+}
+
+.authorPhoto {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: $color-gray-dark;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.authorName {
+  @include display-text($font-size-base);
+
+  color: $color-text;
+}
+
+.authorBio {
+  @include body-text($font-size-sm);
+
+  color: $color-text-muted;
+}
+
+.authorLink {
+  @include eyebrow-text;
+
+  color: $color-accent;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-dark;
+  }
+}
+
+// ─── CTA ───────────────────────────────────────────────────────────────────────
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+  background: $color-accent;
+}
+
+.ctaTitle {
+  @include display-text($font-size-base);
+
+  color: $color-black;
+}
+
+.ctaText {
+  @include body-text($font-size-sm);
+
+  color: $color-black;
+  opacity: 0.8;
+}
+
+.ctaPhone {
+  @include display-text($font-size-md);
+
+  margin-top: $spacing-xs;
+  color: $color-black;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

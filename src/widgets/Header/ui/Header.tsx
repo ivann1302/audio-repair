@@ -4,14 +4,15 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { siteConfig } from '@/shared/config/seo'
+import { useAppStore } from '@/shared/lib/store'
 import type { PropsWithClassName } from '@/shared/types'
 import { Button } from '@/shared/ui'
 
 import styles from './Header.module.scss'
 
 const NAV_LINKS = [
-  { href: '/#services', label: 'УСЛУГИ' },
-  { href: '/#master', label: 'О МАСТЕРЕ' },
+  { href: '/services', label: 'УСЛУГИ' },
+  { href: '/master', label: 'О МАСТЕРЕ' },
   { href: '/blog', label: 'БЛОГ' },
   { href: '/#contacts', label: 'КОНТАКТЫ' },
 ]
@@ -21,6 +22,7 @@ type Props = PropsWithClassName
 export function Header({ className }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const openRepairModal = useAppStore((s) => s.openRepairModal)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -65,8 +67,10 @@ export function Header({ className }: Props) {
           <Button
             variant="primary"
             size="sm"
-            href="/#contacts"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false)
+              openRepairModal()
+            }}
           >
             ЗАЯВКА
           </Button>

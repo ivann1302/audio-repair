@@ -1,0 +1,299 @@
+.eyebrow {
+  @include eyebrow-text;
+
+  margin-bottom: $spacing-md;
+  color: $color-accent;
+}
+
+.eyebrowDark {
+  @include eyebrow-text;
+
+  margin-bottom: $spacing-md;
+  color: $color-accent;
+}
+
+.sectionTitle {
+  @include display-text($font-size-2xl);
+
+  margin-bottom: $spacing-2xl;
+  color: $color-text;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-xl;
+  }
+}
+
+// ─── Hero ──────────────────────────────────────────────────────────────────────
+
+.hero {
+  padding: $section-padding-v 0;
+  background: $color-black;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+}
+
+.heroTitle {
+  @include display-text($font-size-3xl);
+
+  margin-bottom: $spacing-xl;
+  color: $color-white;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.heroSub {
+  @include body-text($font-size-lg);
+
+  margin-bottom: $spacing-2xl;
+  color: $color-gray-mid;
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.heroBtn {
+  align-self: flex-start;
+}
+
+// ─── Service types ─────────────────────────────────────────────────────────────
+
+.types {
+  padding: $section-padding-v 0;
+  background: $color-bg;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.typesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.typeCard {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  height: 100%;
+  padding: $spacing-xl;
+  text-decoration: none;
+  background: $color-white;
+  border: 1px solid $color-border;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
+.typeNum {
+  font-size: 24px;
+  color: $color-accent;
+}
+
+.typeName {
+  @include display-text($font-size-base);
+
+  color: $color-text;
+}
+
+.typeDesc {
+  @include body-text($font-size-base);
+
+  flex: 1;
+  color: $color-text-muted;
+}
+
+.typePrice {
+  @include eyebrow-text;
+
+  margin-top: $spacing-sm;
+  color: $color-accent;
+}
+
+// ─── Pricing ───────────────────────────────────────────────────────────────────
+
+.pricing {
+  padding: $section-padding-v 0;
+  background: $color-bg-section;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.tables {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+.tableBlock {
+  scroll-margin-top: 80px;
+}
+
+.tableTitle {
+  @include display-text($font-size-lg);
+
+  padding-bottom: $spacing-md;
+  margin-bottom: $spacing-lg;
+  color: $color-text;
+  border-bottom: 2px solid $color-accent;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.thWork,
+.thPrice {
+  @include eyebrow-text;
+
+  padding: $spacing-sm $spacing-md;
+  color: $color-text-muted;
+  text-align: left;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+}
+
+.thPrice {
+  width: 180px;
+  text-align: right;
+  white-space: nowrap;
+
+  @include mobile {
+    width: 120px;
+  }
+}
+
+.row {
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $color-white;
+  }
+}
+
+.tdWork {
+  @include body-text($font-size-base);
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-md;
+  color: $color-text;
+}
+
+.tdPrice {
+  @include display-text($font-size-base);
+
+  padding: $spacing-md;
+  vertical-align: middle;
+  color: $color-accent;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.note {
+  @include eyebrow-text;
+
+  font-size: 9px;
+  color: $color-text-muted;
+}
+
+.disclaimer {
+  @include body-text($font-size-base);
+
+  margin-top: $spacing-2xl;
+  font-style: italic;
+  color: $color-text-muted;
+}
+
+// ─── CTA ───────────────────────────────────────────────────────────────────────
+
+.cta {
+  padding: $section-padding-v 0;
+  background: $color-accent;
+
+  @include mobile {
+    padding: $section-padding-mob-v 0;
+  }
+}
+
+.ctaInner {
+  display: flex;
+  gap: $spacing-xl;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.ctaTitle {
+  @include display-text($font-size-2xl);
+
+  color: $color-black;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.ctaSub {
+  @include body-text($font-size-md);
+
+  margin-top: $spacing-sm;
+  color: $color-black;
+  opacity: 0.75;
+}
+
+.ctaBtn {
+  flex-shrink: 0;
+  color: $color-white;
+  background-color: $color-black;
+  border-color: $color-black;
+
+  &:hover {
+    background-color: $color-gray-dark;
+    border-color: $color-gray-dark;
+  }
+}

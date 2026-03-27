@@ -20,6 +20,5 @@ export type Article = {
   category: ArticleCategory
   publishedAt: string
   coverImage: string
-  readTime: number
   content: string
 }
