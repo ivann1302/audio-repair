@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PT_Serif, Russo_One } from 'next/font/google'
 
+import { ContactWidget } from '@/features/ContactWidget'
 import { siteConfig } from '@/shared/config/seo'
 import { Providers } from '@/shared/lib/providers'
 
@@ -66,7 +67,10 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${russoOne.variable} ${ptSerif.variable}`}>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <ContactWidget />
+        </Providers>
       </body>
     </html>
   )

@@ -23,7 +23,7 @@ const stats: StatConfig[] = [
     end: 6,
     suffix: ' МЕС',
     label: 'Гарантия на все работы',
-    duration: 2800,
+    duration: 900,
   },
   {
     end: 0,

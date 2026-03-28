@@ -1,0 +1,201 @@
+.root {
+  position: fixed;
+  right: 32px;
+  bottom: 60px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @include mobile {
+    right: 10px;
+    bottom: 25px;
+    align-items: flex-end;
+  }
+}
+
+.rootVisible {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rootHidden {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(calc(100% + 40px));
+}
+
+// ── Sub-buttons list ──────────────────────────────────────────────────────────
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-right: 15px;
+  pointer-events: none;
+  list-style: none;
+
+  @include mobile {
+    align-items: flex-end;
+    margin-right: 0;
+  }
+}
+
+.item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(16px) scale(0.7);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+
+  .listOpen & {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 25%);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+
+  svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 18px rgb(0 0 0 / 32%);
+    transform: scale(1.12);
+  }
+}
+
+// no background/shadow for icon-only buttons (e.g. MAX which has its own bg)
+.linkBare {
+  width: auto;
+  height: auto;
+  background: none !important;
+  border-radius: 0;
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.maxIcon {
+  display: block;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 24%;
+}
+
+.tooltip {
+  order: -1; // tooltip left of icon
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fafafa;
+  white-space: nowrap;
+  pointer-events: none;
+  background: rgb(17 17 17 / 82%);
+  border-radius: 6px;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+// ── Toggle button ─────────────────────────────────────────────────────────────
+
+.toggle {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  background: #f0b429;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgb(240 180 41 / 50%);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgb(240 180 41 / 65%);
+    transform: scale(1.08);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.toggleOpen {
+  box-shadow: 0 4px 20px rgb(240 180 41 / 35%);
+}
+
+// ── Icon swap ─────────────────────────────────────────────────────────────────
+
+.iconWrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+
+  // chat icon — visible by default
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  &Open {
+    opacity: 0;
+    transform: scale(0.5) rotate(90deg);
+  }
+}
+
+.iconWrapClose {
+  // close icon — hidden by default
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+
+  &Open {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
