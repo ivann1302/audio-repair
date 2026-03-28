@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { RepairRequestModal } from '@/features/RepairRequest'
 import { siteConfig } from '@/shared/config/seo'
+import { localBusinessSchema } from '@/shared/lib/schema'
 import { AboutSection } from '@/widgets/AboutSection'
 import { AccentCTA } from '@/widgets/AccentCTA'
 import { BlogCarousel } from '@/widgets/BlogCarousel'
@@ -16,10 +17,11 @@ import { ReviewsSection } from '@/widgets/ReviewsSection'
 import { ServicesSection } from '@/widgets/ServicesSection'
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: 'Ремонт аудиотехники в Москве — усилители, ресиверы, акустика, винил',
   description: siteConfig.description,
   openGraph: {
-    title: siteConfig.name,
+    title:
+      'Ремонт аудиотехники в Москве — усилители, ресиверы, акустика, винил',
     description: siteConfig.description,
     url: siteConfig.url,
   },
@@ -28,6 +30,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema()),
+        }}
+      />
       <Header />
       <HeroSection />
       <ServicesSection />
