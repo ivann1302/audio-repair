@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Crimson_Text, Russo_One } from 'next/font/google'
+import { PT_Serif, Russo_One } from 'next/font/google'
 
 import { siteConfig } from '@/shared/config/seo'
 import { Providers } from '@/shared/lib/providers'
@@ -13,10 +13,10 @@ const russoOne = Russo_One({
   display: 'swap',
 })
 
-const crimsonText = Crimson_Text({
+const ptSerif = PT_Serif({
   variable: '--font-body',
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '600'],
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
 })
@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" className={`${russoOne.variable} ${crimsonText.variable}`}>
+    <html lang="ru" className={`${russoOne.variable} ${ptSerif.variable}`}>
       <body>
         <Providers>{children}</Providers>
       </body>

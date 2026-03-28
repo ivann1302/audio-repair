@@ -37,6 +37,7 @@
 .title {
   @include display-text($font-size-2xl);
 
+  margin-bottom: 8px;
   color: $color-text;
 
   @include mobile {

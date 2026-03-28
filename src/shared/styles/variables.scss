@@ -30,8 +30,9 @@ $color-border-dark: #2a2a2a;
 // ─── Typography ───────────────────────────────────────────────────────────────
 
 // next/font выставляет CSS-переменные --font-display и --font-body в <html>
-$font-display: var(--font-display), sans-serif; // Anton — заголовки, uppercase
-$font-body: var(--font-body), serif; // Crimson Text — основной текст
+$font-display:
+  var(--font-display), sans-serif; // Russo One — заголовки, uppercase
+$font-body: var(--font-body), serif; // PT Serif — основной текст
 
 // Размеры (десктоп)
 $font-size-xs: 9px;

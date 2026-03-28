@@ -1,6 +1,4 @@
-import Link from 'next/link'
-
-import { SectionTitle } from '@/shared/ui'
+import { Button, SectionTitle } from '@/shared/ui'
 
 import styles from './MasterSection.module.scss'
 
@@ -42,9 +40,9 @@ export function MasterSection() {
             ))}
           </ul>
 
-          <Link href="/master" className={styles.moreLink}>
+          <Button href="/master" variant="primary" size="lg">
             Подробнее о мастере →
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

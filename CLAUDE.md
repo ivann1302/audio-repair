@@ -108,7 +108,7 @@ export function ComponentName({ className }: Props) {
 - Не добавляй анимации без согласования (пока не определились с библиотекой)
 
 ## Design Decisions
-- Шрифты: **Russo One** (display, кириллица) + **Crimson Text** (body)
+- Шрифты: **Russo One** (display, кириллица) + **PT Serif** (body, кириллица)
 - Палитра: монохром #111→#fafafa + акцент **#F0B429** (янтарный)
 - Карта: Yandex Maps iframe в ContactsSection
 - Форма заявки: отправка в **Telegram-бот** (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`)

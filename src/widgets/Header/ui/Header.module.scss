@@ -68,6 +68,7 @@
 .navLink {
   @include eyebrow-text;
 
+  font-size: $font-size-sm;
   color: $color-gray-dark;
   transition: color $transition-fast;
 
@@ -79,6 +80,7 @@
 .phone {
   @include eyebrow-text;
 
+  font-size: $font-size-sm;
   color: $color-gray-mid;
   transition: color $transition-fast;
 

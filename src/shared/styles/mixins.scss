@@ -49,7 +49,7 @@
   letter-spacing: $ls-tight;
 }
 
-// Основной текст Crimson Text
+// Основной текст PT Serif
 @mixin body-text($size: $font-size-md) {
   font-family: $font-body;
   font-size: $size;
@@ -59,7 +59,7 @@
 // Подпись / бровка (Anton мелкий с разрядкой)
 @mixin eyebrow-text {
   font-family: $font-display;
-  font-size: $font-size-xs;
+  font-size: $font-size-base;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: $ls-wider;

@@ -1,3 +1,39 @@
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // ─── Shared ────────────────────────────────────────────────────────────────────
 
 .eyebrow {
@@ -25,11 +61,16 @@
 
 .heroBtn {
   align-self: flex-start;
+  animation: slide-in-bottom 0.7s ease-out 0.55s both;
 }
 
 .hero {
   overflow: hidden;
   background: $color-black;
+
+  .eyebrow {
+    animation: slide-in-bottom 0.6s ease-out both;
+  }
 }
 
 .heroInner {
@@ -61,6 +102,7 @@
   @include display-text($font-size-3xl);
 
   color: $color-white;
+  animation: slide-in-left 0.9s ease-out 0.15s both;
 
   @include mobile {
     font-size: $font-size-2xl;
@@ -71,6 +113,7 @@
   @include body-text($font-size-lg);
 
   color: $color-gray-mid;
+  animation: slide-in-bottom 0.7s ease-out 0.35s both;
 
   @include mobile {
     font-size: $font-size-md;
@@ -194,6 +237,20 @@
   }
 }
 
+@include desktop {
+  .statItem {
+    opacity: 0;
+  }
+
+  .statsAnimated {
+    @for $i from 1 through 4 {
+      .statItem:nth-child(#{$i}) {
+        animation: slide-in-bottom 0.7s ease-out #{($i - 1) * 0.12}s both;
+      }
+    }
+  }
+}
+
 .statsList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -223,7 +280,7 @@
 }
 
 .statLabel {
-  @include body-text($font-size-sm);
+  @include body-text($font-size-base);
 
   color: $color-gray-mid;
 }
@@ -248,6 +305,20 @@
   @include mobile {
     margin-bottom: $spacing-xl;
     font-size: $font-size-xl;
+  }
+}
+
+@include desktop {
+  .skillCard {
+    opacity: 0;
+  }
+
+  .skillsAnimated {
+    @for $i from 1 through 6 {
+      .skillCard:nth-child(#{$i}) {
+        animation: slide-in-bottom 0.7s ease-out #{($i - 1) * 0.1}s both;
+      }
+    }
   }
 }
 
@@ -363,6 +434,11 @@
   display: flex;
   gap: $spacing-md;
   align-items: flex-start;
+  opacity: 0;
+}
+
+.principleVisible {
+  animation: slide-in-right 0.5s ease-out forwards;
 }
 
 .principleAccent {
@@ -436,13 +512,13 @@
 }
 
 .btnDark {
-  color: $color-white;
-  background-color: $color-black;
-  border-color: $color-black;
+  color: $color-white !important;
+  background-color: $color-black !important;
+  border-color: $color-black !important;
 
   &:hover {
-    color: $color-white;
-    background-color: $color-gray-dark;
-    border-color: $color-gray-dark;
+    color: $color-white !important;
+    background-color: $color-gray-dark !important;
+    border-color: $color-gray-dark !important;
   }
 }

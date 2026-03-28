@@ -1,3 +1,27 @@
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .eyebrow {
   @include eyebrow-text;
 
@@ -30,6 +54,10 @@
   padding: $section-padding-v 0;
   background: $color-black;
 
+  .eyebrow {
+    animation: slide-in-bottom 0.6s ease-out both;
+  }
+
   @include mobile {
     padding: $section-padding-mob-v 0;
   }
@@ -46,6 +74,7 @@
 
   margin-bottom: $spacing-xl;
   color: $color-white;
+  animation: slide-in-left 0.9s ease-out 0.15s both;
 
   @include mobile {
     font-size: $font-size-2xl;
@@ -57,6 +86,7 @@
 
   margin-bottom: $spacing-2xl;
   color: $color-gray-mid;
+  animation: slide-in-bottom 0.7s ease-out 0.35s both;
 
   @include mobile {
     font-size: $font-size-md;
@@ -67,6 +97,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: $spacing-md;
+  animation: slide-in-bottom 0.7s ease-out 0.55s both;
 }
 
 .heroBtn {
@@ -81,6 +112,20 @@
 
   @include mobile {
     padding: $section-padding-mob-v 0;
+  }
+}
+
+@include desktop {
+  .typesItem {
+    opacity: 0;
+  }
+
+  .typesAnimated {
+    @for $i from 1 through 6 {
+      .typesItem:nth-child(#{$i}) {
+        animation: slide-in-bottom 0.7s ease-out #{($i - 1) * 0.1}s both;
+      }
+    }
   }
 }
 
@@ -157,6 +202,20 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-2xl;
+}
+
+@include desktop {
+  .tableBlock {
+    opacity: 0;
+  }
+
+  .tablesAnimated {
+    @for $i from 1 through 6 {
+      .tableBlock:nth-child(#{$i}) {
+        animation: slide-in-bottom 0.6s ease-out #{($i - 1) * 0.08}s both;
+      }
+    }
+  }
 }
 
 .tableBlock {

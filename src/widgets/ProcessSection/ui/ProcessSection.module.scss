@@ -33,7 +33,7 @@
 }
 
 .tagline {
-  @include body-text($font-size-md);
+  @include body-text($font-size-lg);
 
   color: $color-gray-mid;
   text-align: right;

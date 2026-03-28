@@ -7,6 +7,8 @@ import { Button, Container } from '@/shared/ui'
 import { Footer } from '@/widgets/Footer'
 import { Header } from '@/widgets/Header'
 
+import { PricingSection } from './_PricingSection'
+import { TypesGrid } from './_TypesGrid'
 import styles from './page.module.scss'
 
 export const metadata: Metadata = {
@@ -120,7 +122,10 @@ const pricing: ServicePricing[] = [
   },
 ]
 
-const pricingBySlug = Object.fromEntries(pricing.map((p) => [p.slug, p.rows]))
+const pricingGroups = pricing.map((p) => ({
+  ...p,
+  title: services.find((s) => s.slug === p.slug)?.title ?? p.slug,
+}))
 
 export default function ServicesPage() {
   return (
@@ -139,7 +144,7 @@ export default function ServicesPage() {
           <div className={styles.heroActions}>
             <Button
               variant="primary"
-              size="md"
+              size="lg"
               href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
               className={styles.heroBtn}
             >
@@ -147,7 +152,7 @@ export default function ServicesPage() {
             </Button>
             <Button
               variant="secondary"
-              size="md"
+              size="lg"
               href="#pricing"
               className={styles.heroBtn}
             >
@@ -162,20 +167,7 @@ export default function ServicesPage() {
         <Container>
           <p className={styles.eyebrowDark}>ЧТО РЕМОНТИРУЕМ</p>
           <h2 className={styles.sectionTitle}>ВИДЫ ТЕХНИКИ</h2>
-          <ul className={styles.typesGrid}>
-            {services.map((service) => (
-              <li key={service.id}>
-                <a href={`#${service.slug}`} className={styles.typeCard}>
-                  <span className={styles.typeNum}>◎</span>
-                  <h3 className={styles.typeName}>{service.title}</h3>
-                  <p className={styles.typeDesc}>{service.description}</p>
-                  <span className={styles.typePrice}>
-                    от {service.priceFrom.toLocaleString('ru')} ₽
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <TypesGrid />
         </Container>
       </section>
 
@@ -185,42 +177,7 @@ export default function ServicesPage() {
           <p className={styles.eyebrow}>СТОИМОСТЬ РАБОТ</p>
           <h2 className={styles.sectionTitle}>ЦЕНЫ</h2>
 
-          <div className={styles.tables}>
-            {services.map((service) => {
-              const rows = pricingBySlug[service.slug]
-              if (!rows) return null
-              return (
-                <div
-                  key={service.slug}
-                  id={service.slug}
-                  className={styles.tableBlock}
-                >
-                  <h3 className={styles.tableTitle}>{service.title}</h3>
-                  <table className={styles.table}>
-                    <thead>
-                      <tr>
-                        <th className={styles.thWork}>Вид работы</th>
-                        <th className={styles.thPrice}>Стоимость</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {rows.map((row) => (
-                        <tr key={row.work} className={styles.row}>
-                          <td className={styles.tdWork}>
-                            {row.work}
-                            {row.note && (
-                              <span className={styles.note}>{row.note}</span>
-                            )}
-                          </td>
-                          <td className={styles.tdPrice}>{row.price}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )
-            })}
-          </div>
+          <PricingSection groups={pricingGroups} />
 
           <p className={styles.disclaimer}>
             * Окончательная стоимость определяется после диагностики. Цены

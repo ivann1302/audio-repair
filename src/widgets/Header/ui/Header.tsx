@@ -66,7 +66,7 @@ export function Header({ className }: Props) {
           </a>
           <Button
             variant="primary"
-            size="sm"
+            size="md"
             onClick={() => {
               setMenuOpen(false)
               openRepairModal()

@@ -107,7 +107,7 @@
 .navTitle {
   @include eyebrow-text;
 
-  font-size: $font-size-xs;
+  font-size: 14px;
   color: $color-text-inv;
   letter-spacing: $ls-wider;
 }
@@ -122,7 +122,7 @@
 }
 
 .navLink {
-  @include body-text($font-size-base);
+  @include body-text($font-size-md);
 
   font-style: italic;
   color: $color-text-muted;

@@ -7,6 +7,9 @@ import { Button, Container } from '@/shared/ui'
 import { Footer } from '@/widgets/Footer'
 import { Header } from '@/widgets/Header'
 
+import { PrinciplesSection } from './_PrinciplesSection'
+import { SkillsGrid } from './_SkillsGrid'
+import { StatsSection } from './_StatsSection'
 import styles from './page.module.scss'
 
 export const metadata: Metadata = {
@@ -127,14 +130,7 @@ export default function MasterPage() {
       {/* ─── Stats ──────────────────────────────────────────────────────────── */}
       <section className={styles.stats}>
         <Container>
-          <ul className={styles.statsList}>
-            {stats.map((s) => (
-              <li key={s.label} className={styles.statItem}>
-                <span className={styles.statValue}>{s.value}</span>
-                <span className={styles.statLabel}>{s.label}</span>
-              </li>
-            ))}
-          </ul>
+          <StatsSection items={stats} />
         </Container>
       </section>
 
@@ -143,15 +139,7 @@ export default function MasterPage() {
         <Container>
           <p className={styles.eyebrowLight}>СПЕЦИАЛИЗАЦИЯ</p>
           <h2 className={styles.skillsTitle}>ЧТО Я РЕМОНТИРУЮ</h2>
-          <ul className={styles.skillsGrid}>
-            {skills.map((s) => (
-              <li key={s.title} className={styles.skillCard}>
-                <span className={styles.skillMark}>◎</span>
-                <h3 className={styles.skillName}>{s.title}</h3>
-                <p className={styles.skillText}>{s.text}</p>
-              </li>
-            ))}
-          </ul>
+          <SkillsGrid items={skills} />
         </Container>
       </section>
 
@@ -171,34 +159,7 @@ export default function MasterPage() {
         <div className={styles.processContent}>
           <p className={styles.eyebrowDark}>КАК Я РАБОТАЮ</p>
           <h2 className={styles.processTitle}>ПРИНЦИПЫ</h2>
-          <ul className={styles.principlesList}>
-            {[
-              [
-                'Честная диагностика',
-                'Называю реальную причину поломки и реальную стоимость ещё до начала работ.',
-              ],
-              [
-                'Оригинальные компоненты',
-                'Подбираю компоненты под конкретную схему, а не «что дешевле».',
-              ],
-              [
-                'Гарантия на работы',
-                '3 года на выполненный ремонт. Если что-то не так — исправлю бесплатно.',
-              ],
-              [
-                'Обратная связь',
-                'Объясняю что сломалось, почему и как это предотвратить в будущем.',
-              ],
-            ].map(([title, text]) => (
-              <li key={title} className={styles.principle}>
-                <span className={styles.principleAccent}>—</span>
-                <div>
-                  <strong className={styles.principleTitle}>{title}</strong>
-                  <p className={styles.principleText}>{text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <PrinciplesSection />
         </div>
       </section>
 
