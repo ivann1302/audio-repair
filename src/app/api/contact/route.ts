@@ -17,27 +17,59 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid data' }, { status: 400 })
   }
 
-  const { name, phone, equipment, problem } = parsed.data
+  const { name, phone, equipment, problem, _honeypot } = parsed.data
+
+  // honeypot — бот заполнил скрытое поле, тихо игнорируем
+  if (_honeypot) {
+    return NextResponse.json({ success: true })
+  }
 
   const token = process.env.TELEGRAM_BOT_TOKEN
   const chatId = process.env.TELEGRAM_CHAT_ID
 
-  if (token && chatId) {
-    const text = [
-      '🔧 *Новая заявка на ремонт*',
-      `👤 Имя: ${name}`,
-      `📞 Телефон: ${phone}`,
-      `🎛 Техника: ${equipment}`,
-      problem ? `📝 Проблема: ${problem}` : '',
-    ]
-      .filter(Boolean)
-      .join('\n')
+  if (!token || !chatId) {
+    console.error('[contact] TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not set')
+    return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 })
+  }
 
-    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const sentAt = new Date().toLocaleString('ru-RU', {
+    timeZone: 'Europe/Moscow',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+
+  const referer = request.headers.get('referer') ?? ''
+  const page = referer ? new URL(referer).pathname : '—'
+
+  const text = [
+    '🔧 <b>Новая заявка на ремонт</b>',
+    `👤 <b>Имя:</b> ${name}`,
+    `📞 <b>Телефон:</b> ${phone}`,
+    `🎛 <b>Техника:</b> ${equipment}`,
+    problem ? `📝 <b>Проблема:</b> ${problem}` : null,
+    ``,
+    `🕐 <b>Время:</b> ${sentAt} (МСК)`,
+    `🌐 <b>Страница:</b> ${page}`,
+  ]
+    .filter((l) => l !== null)
+    .join('\n')
+
+  const tgRes = await fetch(
+    `https://api.telegram.org/bot${token}/sendMessage`,
+    {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' }),
-    })
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' }),
+    }
+  )
+
+  if (!tgRes.ok) {
+    const err = await tgRes.text()
+    console.error('[contact] Telegram error:', err)
+    return NextResponse.json({ error: 'Telegram error' }, { status: 502 })
   }
 
   return NextResponse.json({ success: true })

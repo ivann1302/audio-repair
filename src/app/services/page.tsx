@@ -4,6 +4,7 @@ import { services } from '@/entities/Service'
 import { RepairRequestModal } from '@/features/RepairRequest'
 import { siteConfig } from '@/shared/config/seo'
 import { Button, Container } from '@/shared/ui'
+import { AccentCTA } from '@/widgets/AccentCTA'
 import { Footer } from '@/widgets/Footer'
 import { Header } from '@/widgets/Header'
 
@@ -186,25 +187,7 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      {/* ─── CTA ──────────────────────────────────────────────────────────────── */}
-      <section className={styles.cta}>
-        <Container className={styles.ctaInner}>
-          <div>
-            <h2 className={styles.ctaTitle}>ГОТОВЫ ОБСУДИТЬ РЕМОНТ?</h2>
-            <p className={styles.ctaSub}>
-              Опишите проблему — скажу, можно ли починить и сколько это стоит.
-            </p>
-          </div>
-          <Button
-            variant="primary"
-            size="lg"
-            href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
-            className={styles.ctaBtn}
-          >
-            ПОЗВОНИТЬ
-          </Button>
-        </Container>
-      </section>
+      <AccentCTA />
 
       <Footer />
       <RepairRequestModal />

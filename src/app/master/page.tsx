@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { RepairRequestModal } from '@/features/RepairRequest'
 import { siteConfig } from '@/shared/config/seo'
 import { Button, Container } from '@/shared/ui'
+import { AccentCTA } from '@/widgets/AccentCTA'
 import { Footer } from '@/widgets/Footer'
 import { Header } from '@/widgets/Header'
 
@@ -163,34 +164,7 @@ export default function MasterPage() {
         </div>
       </section>
 
-      {/* ─── CTA ────────────────────────────────────────────────────────────── */}
-      <section className={styles.cta}>
-        <Container className={styles.ctaInner}>
-          <div>
-            <h2 className={styles.ctaTitle}>ЕСТЬ АППАРАТ НА РЕМОНТ?</h2>
-            <p className={styles.ctaSub}>
-              Опишите проблему — скажу, можно ли починить и сколько это стоит.
-            </p>
-          </div>
-          <div className={styles.ctaActions}>
-            <Button
-              variant="primary"
-              size="lg"
-              href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
-            >
-              ПОЗВОНИТЬ
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              href="/#contacts"
-              className={styles.btnDark}
-            >
-              НАПИСАТЬ
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <AccentCTA />
 
       <Footer />
       <RepairRequestModal />

@@ -261,7 +261,9 @@
   }
 
   @include mobile {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
   }
 }
 
@@ -271,6 +273,13 @@
   gap: $spacing-xs;
   padding: $spacing-xl;
   border: 1px solid $color-border-dark;
+
+  @include mobile {
+    align-items: center;
+    padding: 0;
+    text-align: center;
+    border: none;
+  }
 }
 
 .statValue {
@@ -283,6 +292,10 @@
   @include body-text($font-size-base);
 
   color: $color-gray-mid;
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
 }
 
 // ─── Skills ────────────────────────────────────────────────────────────────────

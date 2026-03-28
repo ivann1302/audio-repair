@@ -100,7 +100,7 @@
 }
 
 .statValue {
-  @include display-text($font-size-xl);
+  @include display-text(26px);
 
   color: $color-text;
 }

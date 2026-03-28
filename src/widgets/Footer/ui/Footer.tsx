@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import styles from './Footer.module.scss'
+import { FooterCta } from './FooterCta'
 
 const navLinks = [
   { label: 'Услуги', href: '/services' },
@@ -74,9 +75,7 @@ export function Footer() {
           © 2007–2025 AUDIO REPAIR. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
         </span>
         <div className={styles.bottomRight}>
-          <Link href="/#contacts" className={styles.ctaButton}>
-            ОСТАВИТЬ ЗАЯВКУ
-          </Link>
+          <FooterCta />
           <span className={styles.made}>
             Сделано с уважением к аналоговому звуку
           </span>
