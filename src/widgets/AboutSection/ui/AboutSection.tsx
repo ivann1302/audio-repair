@@ -14,7 +14,7 @@ type StatConfig = {
 
 const stats: StatConfig[] = [
   {
-    end: 1400,
+    end: 5000,
     suffix: '+',
     label: 'Отремонтировано аппаратов',
     duration: 900,
@@ -26,11 +26,10 @@ const stats: StatConfig[] = [
     duration: 900,
   },
   {
-    end: 0,
+    end: 1500,
     suffix: ' ₽',
     label: 'Диагностика',
-    duration: 0,
-    pulse: true,
+    duration: 900,
   },
 ]
 
@@ -65,9 +64,7 @@ function StatItem({ stat, active }: StatItemProps) {
 
   return (
     <li className={styles.stat}>
-      <span
-        className={`${styles.statValue} ${stat.pulse && active ? styles.statValuePulse : ''}`}
-      >
+      <span className={styles.statValue}>
         {count}
         {stat.suffix}
       </span>
@@ -110,14 +107,14 @@ export function AboutSection() {
             <span className={styles.eyebrowLine} aria-hidden /> О МАСТЕРЕ
           </p>
           <h2 className={styles.title}>
-            27 ЛЕТ
+            35 ЛЕТ
             <br />
             ПРАКТИКИ
           </h2>
           <p className={styles.bio}>
-            Начинал в 1997-м — чинил «Радиотехнику» и «Вегу» для соседей.
-            Сегодня работаю с Luxman, Esam, Tandis и с советской классикой.
-            Каждый аппарат — отдельная история.
+            Начинал в 1991-м — чинил технику еще в школе. Сегодня работаю с
+            любым видом техники, включая иностранные бренды и советскую
+            классику. Каждый аппарат - отдельная история.
           </p>
         </div>
 

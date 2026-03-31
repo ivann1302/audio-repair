@@ -30,7 +30,8 @@ export function Footer() {
           <p className={styles.tagline}>
             Частный мастер. Бережный ремонт
             <br />
-            звуковой техники с 2007 года.
+            звуковой техники и видеоаппаратуры
+            <br /> с 1991 года.
           </p>
           <a href="tel:+74951234567" className={styles.phone}>
             +7 (495) 123-45-67
@@ -38,7 +39,9 @@ export function Footer() {
           <a href="mailto:master@audiorepair.ru" className={styles.contact}>
             master@audiorepair.ru
           </a>
-          <span className={styles.contact}>Москва, м. Таганская</span>
+          <span className={styles.contact}>
+            Москва, м. Войковская / МЦД Коптево;
+          </span>
         </div>
 
         <div className={styles.navGroup}>
@@ -72,7 +75,10 @@ export function Footer() {
 
       <div className={styles.bottom}>
         <span className={styles.copy}>
-          © 2007–2025 AUDIO REPAIR. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
+          Алексей Кузьмин оказывает услуги в качестве физического лица.
+          <br />
+          Информация на сайте носит ознакомительный характер и не является
+          публичной офертой.
         </span>
         <div className={styles.bottomRight}>
           <FooterCta />

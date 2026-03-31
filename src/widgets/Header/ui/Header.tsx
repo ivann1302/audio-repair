@@ -41,7 +41,7 @@ export function Header({ className }: Props) {
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoMark}>◎</span>
-          <span className={styles.logoText}>AUDIO REPAIR</span>
+          <span className={styles.logoText}>АЛЕКСЕЙ КУЗЬМИН</span>
         </Link>
 
         <nav

@@ -33,7 +33,7 @@ const pricing: ServicePricing[] = [
   {
     slug: 'amplifiers',
     rows: [
-      { work: 'Диагностика', price: 'бесплатно' },
+      { work: 'Диагностика', price: '1 500 ₽' },
       { work: 'Замена выходных транзисторов', price: 'от 2 500 ₽' },
       {
         work: 'Замена электролитических конденсаторов',
@@ -48,7 +48,7 @@ const pricing: ServicePricing[] = [
   {
     slug: 'receivers',
     rows: [
-      { work: 'Диагностика', price: 'бесплатно' },
+      { work: 'Диагностика', price: '1 500 ₽' },
       { work: 'Ремонт усилительной секции', price: 'от 3 000 ₽' },
       {
         work: 'Замена HDMI-платы',
@@ -63,7 +63,7 @@ const pricing: ServicePricing[] = [
   {
     slug: 'vinyl',
     rows: [
-      { work: 'Диагностика', price: 'бесплатно' },
+      { work: 'Диагностика', price: '1 500 ₽' },
       {
         work: 'Замена иглы / головки звукоснимателя',
         price: 'от 500 ₽',
@@ -78,7 +78,7 @@ const pricing: ServicePricing[] = [
   {
     slug: 'speakers',
     rows: [
-      { work: 'Диагностика', price: 'бесплатно' },
+      { work: 'Диагностика', price: '1 500 ₽' },
       {
         work: 'Замена динамика',
         price: 'от 1 200 ₽',
@@ -90,9 +90,9 @@ const pricing: ServicePricing[] = [
     ],
   },
   {
-    slug: 'cd-players',
+    slug: 'cd/dvd-players',
     rows: [
-      { work: 'Диагностика', price: 'бесплатно' },
+      { work: 'Диагностика', price: '1 500 ₽' },
       {
         work: 'Замена лазерной головки',
         price: 'от 2 000 ₽',
@@ -106,7 +106,7 @@ const pricing: ServicePricing[] = [
   {
     slug: 'tape-recorders',
     rows: [
-      { work: 'Диагностика', price: 'бесплатно' },
+      { work: 'Диагностика', price: '1 500 ₽' },
       {
         work: 'Замена пассиков',
         price: 'от 800 ₽',
@@ -140,7 +140,8 @@ export default function ServicesPage() {
           <h1 className={styles.heroTitle}>РЕМОНТ АУДИОТЕХНИКИ</h1>
           <p className={styles.heroSub}>
             Работаю с отечественной и импортной аппаратурой. Диагностика —
-            бесплатно. Стоимость ремонта согласовывается до начала работ.
+            бесплатно. Начальная стоимость ремонта составляет 2 500 ₽ (включая
+            диагностику). Конечная стоимость согласовывается до начала работ.
           </p>
           <div className={styles.heroActions}>
             <Button

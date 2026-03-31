@@ -9,15 +9,15 @@ const contacts = [
     value: 'master@audio-repair.ru',
     href: 'mailto:master@audio-repair.ru',
   },
-  { label: 'Адрес', value: 'Москва, ул. Примерная, д. 1', href: null },
-  { label: 'Часы работы', value: 'Пн–Сб: 10:00 – 20:00', href: null },
+  { label: 'Адрес', value: 'Москва, Коптевский бульвар, 16к1', href: null },
+  { label: 'Часы работы', value: 'Пн–ВС: 10:00 – 22:00', href: null },
 ]
 
 export function ContactsSection() {
   return (
     <section id="contacts" className={styles.root}>
       <Container>
-        <SectionTitle eyebrow="КАК НАС НАЙТИ" title="КОНТАКТЫ" />
+        <SectionTitle eyebrow="КАК МЕНЯ НАЙТИ" title="КОНТАКТЫ" />
 
         <div className={styles.inner}>
           <ul className={styles.list}>

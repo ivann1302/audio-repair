@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 }
 
 const stats = [
-  { value: '15', label: 'лет опыта' },
-  { value: '500+', label: 'отремонтированных аппаратов' },
-  { value: '3', label: 'года гарантии на работы' },
-  { value: '0 ₽', label: 'диагностика' },
+  { value: '35', label: 'лет опыта' },
+  { value: '5000+', label: 'отремонтированных аппаратов' },
+  { value: '6', label: 'месяцев гарантии на работы' },
+  { value: '1500 ₽', label: 'диагностика' },
 ]
 
 const skills = [
@@ -48,7 +48,7 @@ const skills = [
     text: 'Перемотка и замена динамиков, ремонт кроссоверов, восстановление корпусов.',
   },
   {
-    title: 'CD / SACD ПРОИГРЫВАТЕЛИ',
+    title: 'CD/DVD ПРОИГРЫВАТЕЛИ',
     text: 'Замена лазерных головок, ремонт механики транспорта, восстановление ЦАП-секции.',
   },
 ]
@@ -63,11 +63,13 @@ export default function MasterPage() {
         <Container className={styles.heroInner}>
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>ЧАСТНЫЙ МАСТЕР · МОСКВА</p>
-            <h1 className={styles.heroName}>АЛЕКСЕЙ МОРОЗОВ</h1>
+            <h1 className={styles.heroName}>АЛЕКСЕЙ КУЗЬМИН</h1>
             <p className={styles.heroSub}>
-              Ремонт Hi-Fi и Hi-End аудиотехники с 2009 года.
+              Ремонт аудиотехники и видеоаппаратуры с 1991 года.
               <br />
-              Диагностика бесплатно — приеду или приносите.
+              Занимаюсь ремонтом любой сложности.
+              <br />
+              Диагностика 1500 ₽.
             </p>
             <Button
               variant="primary"
@@ -81,7 +83,7 @@ export default function MasterPage() {
           <div className={styles.heroPhoto}>
             <Image
               src="/images/hero.webp"
-              alt="Алексей Морозов — мастер по ремонту аудиотехники"
+              alt="Алексей Кузьмин — мастер по ремонту аудиотехники и видеоаппаратуры"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover', objectPosition: 'top' }}
@@ -106,14 +108,16 @@ export default function MasterPage() {
               это основная часть работы.
             </p>
             <p className={styles.bioPara}>
-              Работаю один, без мастерской — только выездная диагностика и
-              работа дома. Это позволяет уделять каждому аппарату столько
-              времени, сколько нужно. Не конвейер.
+              Работаю один, без посредников и раздутого штата — только выездная
+              диагностика по договоренности и работа дома. Это позволяет уделять
+              каждому аппарату столько времени, сколько нужно. Не конвейер. За
+              работы отвечаю своим имен. Именно по этой причине ремонт у меня
+              выйдет дешевле, чем в больших мастерских.
             </p>
             <p className={styles.bioPara}>
-              Использую только проверенные компоненты: конденсаторы Nichicon и
-              Elna, резисторы Vishay, транзисторы оригинальной маркировки.
-              Никаких китайских «аналогов» в сигнальном тракте.
+              Использую только проверенные компоненты у проверенных поставщиков.
+              Занимаюсь подбором самостоятельно, что позволяет дать гарантии на
+              работы 6 месяцев.
             </p>
           </div>
           <div className={styles.bioPhotoWrap}>
@@ -121,7 +125,7 @@ export default function MasterPage() {
               <span className={styles.photoLabel}>РАБОЧЕЕ МЕСТО</span>
             </div>
             <div className={styles.bioAccent}>
-              <span className={styles.bioAccentNum}>2009</span>
+              <span className={styles.bioAccentNum}>1991</span>
               <span className={styles.bioAccentLabel}>год начала работы</span>
             </div>
           </div>

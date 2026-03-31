@@ -28,6 +28,12 @@
   pointer-events: none;
   opacity: 0;
   transform: translateX(calc(100% + 40px));
+
+  @include mobile {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 // ── Sub-buttons list ──────────────────────────────────────────────────────────

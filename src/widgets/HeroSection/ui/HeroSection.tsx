@@ -18,23 +18,23 @@ export function HeroSection({ className }: Props) {
       <Container className={styles.inner}>
         <div className={styles.content}>
           <span className={styles.eyebrow}>
-            Частный мастер · Москва · Работаю с 2010 года
+            Частный мастер · Москва · Работаю с 1991 года
           </span>
-          <h1 className={styles.title}>
-            ВЕРНЁМ
+          <h2 className={styles.title}>
+            ВЕРНУ
             <br />
             ВАШУ
             <br />
             ТЕХНИКУ
             <br />К ЖИЗНИ
+          </h2>
+          <h1 className={styles.subtitle}>
+            Ремонт аудио- и видеоаппаратуры
+            <br />
+            от частного мастера.
+            <br />
+            Бережное отношение к вашей аппаратуре
           </h1>
-          <p className={styles.subtitle}>
-            Усилители, ресиверы, виниловые проигрыватели,
-            <br />
-            акустика. Диагностика бесплатно.
-            <br />
-            Бережное отношение к вашей технике
-          </p>
           <div className={styles.actions}>
             <Button variant="primary" size="lg" onClick={openRepairModal}>
               ОСТАВИТЬ ЗАЯВКУ
@@ -55,7 +55,7 @@ export function HeroSection({ className }: Props) {
             priority
           />
           <div className={styles.badge}>
-            <span className={styles.badgeNumber}>15</span>
+            <span className={styles.badgeNumber}>35</span>
             <span className={styles.badgeLabel}>лет опыта</span>
           </div>
         </div>

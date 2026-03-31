@@ -50,8 +50,12 @@ export function AccentCTA() {
 
       <div className={styles.right}>
         <p className={styles.description}>
-          Привезите аппарат или опишите проблему по телефону. Диагностика —
-          бесплатно. Работаем без выходных.
+          Оставье заявку или позвоните
+          <br />
+          Обсудим поломку
+          <br />
+          Диагностика от 1 дня
+          <br /> Работаю без выходных
         </p>
         <button onClick={openRepairModal} className={styles.button}>
           ОСТАВИТЬ ЗАЯВКУ →

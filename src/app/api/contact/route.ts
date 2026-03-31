@@ -6,7 +6,7 @@ const schema = z.object({
   phone: z.string().regex(/^\+7\s?\(?\d{3}\)?\s?\d{3}[-\s]?\d{2}[-\s]?\d{2}$/),
   equipment: z.string().min(3),
   problem: z.string().optional(),
-  _honeypot: z.string().max(0),
+  _honeypot: z.string(),
 })
 
 export async function POST(request: Request) {
@@ -25,12 +25,20 @@ export async function POST(request: Request) {
   }
 
   const token = process.env.TELEGRAM_BOT_TOKEN
-  const chatId = process.env.TELEGRAM_CHAT_ID
+  const chatIdsRaw =
+    process.env.TELEGRAM_CHAT_IDS ?? process.env.TELEGRAM_CHAT_ID
 
-  if (!token || !chatId) {
-    console.error('[contact] TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not set')
+  if (!token || !chatIdsRaw) {
+    console.error(
+      '[contact] TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_IDS is not set'
+    )
     return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 })
   }
+
+  const chatIds = chatIdsRaw
+    .split(',')
+    .map((id) => id.trim())
+    .filter(Boolean)
 
   const sentAt = new Date().toLocaleString('ru-RU', {
     timeZone: 'Europe/Moscow',
@@ -57,18 +65,30 @@ export async function POST(request: Request) {
     .filter((l) => l !== null)
     .join('\n')
 
-  const tgRes = await fetch(
-    `https://api.telegram.org/bot${token}/sendMessage`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' }),
-    }
+  const results = await Promise.allSettled(
+    chatIds.map((chatId) =>
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' }),
+      }).then((res) => {
+        if (!res.ok) throw new Error(`chat ${chatId}: ${res.status}`)
+        return res
+      })
+    )
   )
 
-  if (!tgRes.ok) {
-    const err = await tgRes.text()
-    console.error('[contact] Telegram error:', err)
+  const failed = results.filter((r) => r.status === 'rejected')
+  if (failed.length > 0) {
+    failed.forEach((r) =>
+      console.error(
+        '[contact] Telegram error:',
+        (r as PromiseRejectedResult).reason
+      )
+    )
+  }
+
+  if (failed.length === chatIds.length) {
     return NextResponse.json({ error: 'Telegram error' }, { status: 502 })
   }
 

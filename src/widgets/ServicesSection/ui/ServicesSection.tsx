@@ -32,7 +32,7 @@ export function ServicesSection() {
     <section className={styles.root}>
       <Container>
         <div className={styles.header}>
-          <h2 className={styles.title}>ЧТО МЫ РЕМОНТИРУЕМ</h2>
+          <h2 className={styles.title}>ЧТО РЕМОНТИРУЮ</h2>
           <p className={styles.tagline}>
             Работаю с отечественной и иностранной техникой
           </p>
